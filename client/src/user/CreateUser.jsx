@@ -14,6 +14,23 @@ function CreateUser() {
               className="form-control"
             />
           </div>
+          <div className="mb-2">
+            <label htmlFor="">Email</label>
+            <input
+              type="email"
+              placeholder="Enter Email"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-2">
+            <label htmlFor="">Age</label>
+            <input
+              type="text"
+              placeholder="Enter Age"
+              className="form-control"
+            />
+          </div>
+          <button className="btn btn-success">Submit</button>
         </form>
       </div>
     </div>
