@@ -22,11 +22,17 @@ function Users() {
           </thead>
           <tbody>
             {users.map((user) => {
-              <tr>
-                <td>{user.Name}</td>
-                <td>{user.Email}</td>
-                <td>{user.Age}</td>
-              </tr>;
+              return (
+                <tr>
+                  <td>{user.Name}</td>
+                  <td>{user.Email}</td>
+                  <td>{user.Age}</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+              );
             })}
           </tbody>
         </table>
