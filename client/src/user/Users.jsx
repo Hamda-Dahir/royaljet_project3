@@ -19,7 +19,7 @@ function Users() {
         console.log(res);
         window.location.reload();
       })
-      .catch((err) => console.log(err));
+      .catch((errr) => console.log(errr));
   };
 
   return (
