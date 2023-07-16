@@ -8,6 +8,8 @@ function Users() {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(5);
+  const [filterName, setFilterName] = useState('');
+  const [filterAge, setFilterAge] = useState('');
 
   useEffect(() => {
     axios
@@ -29,15 +31,28 @@ function Users() {
       .catch((err) => console.log(err));
   };
 
-  const handleFilterChange = (e) => {
-    const { value } = e.target;
-    if (value === 'all') {
-      setFilteredUsers(users);
-    } else if (value === 'adults') {
-      setFilteredUsers(users.filter((user) => user.age >= 18));
-    } else if (value === 'minors') {
-      setFilteredUsers(users.filter((user) => user.age < 18));
+  const handleFilterChange = () => {
+    let filteredResults = users;
+
+    if (filterName) {
+      filteredResults = filteredResults.filter((user) =>
+        user.name.toLowerCase().includes(filterName.toLowerCase())
+      );
     }
+
+    if (filterAge) {
+      filteredResults = filteredResults.filter((user) =>
+        user.age.toString().includes(filterAge)
+      );
+    }
+
+    setFilteredUsers(filteredResults);
+  };
+
+  const handleResetFilter = () => {
+    setFilterName('');
+    setFilterAge('');
+    setFilteredUsers(users);
   };
 
   // Pagination
@@ -53,22 +68,39 @@ function Users() {
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h2 className="mb-0">Users</h2>
           <div className="d-flex align-items-center">
-            <div className="me-3">
-              <span className="me-2">Filter:</span>
-              <select className="form-select" onChange={handleFilterChange}>
-                <option value="all">All</option>
-                <option value="adults">Adults (18+)</option>
-                <option value="minors">Minors</option>
-              </select>
+            <div className="d-flex align-items-center me-3">
+              <span className="me-2">Name:</span>
+              <input
+                type="text"
+                value={filterName}
+                onChange={(e) => setFilterName(e.target.value)}
+                className="form-control me-2"
+              />
+              <span className="me-2">Age:</span>
+              <input
+                type="text"
+                value={filterAge}
+                onChange={(e) => setFilterAge(e.target.value)}
+                className="form-control"
+              />
             </div>
+            <button
+              onClick={handleFilterChange}
+              className="btn btn-primary me-2"
+            >
+              <FaFilter className="me-2" />
+              Filter
+            </button>
+            <button
+              onClick={handleResetFilter}
+              className="btn btn-secondary me-2"
+            >
+              Reset
+            </button>
             <Link to="/create" className="btn btn-success me-2">
               Add +
             </Link>
             <button className="btn btn-secondary">
-              <FaFilter className="me-2" />
-              Filters
-            </button>
-            <button className="btn btn-secondary ms-2">
               <FaFileAlt className="me-2" />
               Reports
             </button>
