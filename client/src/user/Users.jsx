@@ -124,6 +124,7 @@ function Users() {
           <table className="table table-striped">
             <thead>
               <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Age</th>
@@ -131,8 +132,9 @@ function Users() {
               </tr>
             </thead>
             <tbody>
-              {currentUsers.map((user) => (
+              {currentUsers.map((user, index) => (
                 <tr key={user._id}>
+                  <td>{index + 1}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.age}</td>
