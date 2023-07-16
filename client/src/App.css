@@ -1,14 +1,31 @@
+/* App.css */
 .app-container {
   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header p {
+  margin: 5px 0;
 }
 
 .sidebar {
   width: 250px;
-  height: 100vh;
+  height: 100%;
   background-color: #333;
   color: #fff;
   padding: 20px;
-  position: fixed;
 }
 
 .sidebar h2 {
@@ -29,7 +46,7 @@
 }
 
 .content {
-  margin-left: 250px;
+  flex: 1;
   padding: 20px;
 }
 
