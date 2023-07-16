@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFilter, FaFileAlt } from 'react-icons/fa';
+import './users.css';
 
 function Users() {
   const [users, setUsers] = useState([]);
