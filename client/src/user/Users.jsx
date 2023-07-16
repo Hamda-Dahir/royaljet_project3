@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaFilter, FaFileAlt } from 'react-icons/fa';
+import { FaFilter, FaFileAlt, FaPrint } from 'react-icons/fa';
+import UserReport from './UserReport';
 import './users.css';
 
 function Users() {
@@ -56,6 +57,12 @@ function Users() {
     setFilteredUsers(users);
   };
 
+  // State to handle showing the printable report
+  const [showReport, setShowReport] = useState(false);
+
+  // Function to toggle the printable report
+  const toggleReport = () => setShowReport(!showReport);
+
   // Pagination
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
@@ -65,103 +72,111 @@ function Users() {
 
   return (
     <div className="container py-5">
-      <div className="bg-white rounded p-3">
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <h2 className="mb-0">Users</h2>
-          <div className="d-flex align-items-center">
-            <div className="d-flex align-items-center me-3">
-              <span className="me-2">Name:</span>
-              <input
-                type="text"
-                value={filterName}
-                onChange={(e) => setFilterName(e.target.value)}
-                className="form-control me-2"
-              />
-              <span className="me-2">Age:</span>
-              <input
-                type="text"
-                value={filterAge}
-                onChange={(e) => setFilterAge(e.target.value)}
-                className="form-control"
-              />
-            </div>
-            <button
-              onClick={handleFilterChange}
-              className="btn btn-primary me-2"
-            >
-              <FaFilter className="me-2" />
-              Filter
-            </button>
-            <button
-              onClick={handleResetFilter}
-              className="btn btn-secondary me-2"
-            >
-              Reset
-            </button>
-            <Link to="/create" className="btn btn-success me-2">
-              Add +
-            </Link>
-            <button className="btn btn-secondary">
-              <FaFileAlt className="me-2" />
-              Reports
-            </button>
-          </div>
-        </div>
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Age</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentUsers.map((user) => (
-              <tr key={user._id}>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.age}</td>
-                <td>
-                  <Link
-                    to={`/update/${user._id}`}
-                    className="btn btn-success me-2"
-                  >
-                    Update
-                  </Link>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => handleDelete(user._id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <nav className="d-flex justify-content-center">
-          <ul className="pagination">
-            {Array.from({
-              length: Math.ceil(filteredUsers.length / usersPerPage),
-            }).map((_, index) => (
-              <li
-                key={index}
-                className={`page-item ${
-                  currentPage === index + 1 ? 'active' : ''
-                }`}
+      {showReport ? ( // If showReport is true, show the printable report
+        <UserReport users={users} />
+      ) : (
+        <div className="bg-white rounded p-3">
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <h2 className="mb-0">Users</h2>
+            <div className="d-flex align-items-center">
+              <div className="d-flex align-items-center me-3">
+                <span className="me-2">Name:</span>
+                <input
+                  type="text"
+                  value={filterName}
+                  onChange={(e) => setFilterName(e.target.value)}
+                  className="form-control me-2"
+                />
+                <span className="me-2">Age:</span>
+                <input
+                  type="text"
+                  value={filterAge}
+                  onChange={(e) => setFilterAge(e.target.value)}
+                  className="form-control"
+                />
+              </div>
+              <button
+                onClick={handleFilterChange}
+                className="btn btn-primary me-2"
               >
-                <button
-                  onClick={() => paginate(index + 1)}
-                  className="page-link"
+                <FaFilter className="me-2" />
+                Filter
+              </button>
+              <button
+                onClick={handleResetFilter}
+                className="btn btn-secondary me-2"
+              >
+                Reset
+              </button>
+              <Link to="/create" className="btn btn-success me-2">
+                Add +
+              </Link>
+              <button className="btn btn-secondary">
+                <FaFileAlt className="me-2" />
+                Reports
+              </button>
+              <button className="btn btn-secondary me-2" onClick={toggleReport}>
+                <FaPrint className="me-2" />
+                Print
+              </button>
+            </div>
+          </div>
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentUsers.map((user) => (
+                <tr key={user._id}>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.age}</td>
+                  <td>
+                    <Link
+                      to={`/update/${user._id}`}
+                      className="btn btn-success me-2"
+                    >
+                      Update
+                    </Link>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleDelete(user._id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <nav className="d-flex justify-content-center">
+            <ul className="pagination">
+              {Array.from({
+                length: Math.ceil(filteredUsers.length / usersPerPage),
+              }).map((_, index) => (
+                <li
+                  key={index}
+                  className={`page-item ${
+                    currentPage === index + 1 ? 'active' : ''
+                  }`}
                 >
-                  {index + 1}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+                  <button
+                    onClick={() => paginate(index + 1)}
+                    className="page-link"
+                  >
+                    {index + 1}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      )}
     </div>
   );
 }
