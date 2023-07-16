@@ -11,7 +11,7 @@ import Header from './Dashboard/Header';
 
 function App() {
   const [count, setCount] = useState(0);
-  const userName = 'John Doe'; // Replace this with the actual user name fetched from your data or state
+  const userName = 'Warsame'; // Replace this with the actual user name fetched from your data or state
 
   return (
     <div className="app-container">
