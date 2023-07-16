@@ -8,7 +8,7 @@ function SidebarMenu() {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="bg-dark col-auto col-md-3 min-vh-100 d-flex justify-content-between flex-column">
+        <div className=" col-auto   d-flex justify-content-between flex-column">
           <div>
             <a className="text-decoration-none text-white d-none d-sm-inline d-flex align-itemcenter ms-3 mt-2">
               <span className="ms-1 fs-4 d-none d-sm-inline">Brand</span>
