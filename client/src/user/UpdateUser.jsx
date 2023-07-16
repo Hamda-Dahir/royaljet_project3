@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import './updateUser.css';
 
 function UpdateUser() {
   const { id } = useParams();
@@ -33,34 +34,37 @@ function UpdateUser() {
   };
 
   return (
-    <div className="justify-content-center align-items-center">
-      <div className=" bg-white rounded p-3">
+    <div className="update-user-container">
+      <div className="update-user-form bg-white rounded p-3">
         <form onSubmit={Update}>
           <h2>Update User</h2>
-          <div className="mb-2">
-            <label htmlFor="">Name</label>
+          <div className="form-group mb-2">
+            <label htmlFor="name">Name</label>
             <input
               type="text"
+              id="name"
               placeholder="Enter Name"
               className="form-control"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <div className="mb-2">
-            <label htmlFor="">Email</label>
+          <div className="form-group mb-2">
+            <label htmlFor="email">Email</label>
             <input
               type="email"
+              id="email"
               placeholder="Enter Email"
               className="form-control"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="mb-2">
-            <label htmlFor="">Age</label>
+          <div className="form-group mb-2">
+            <label htmlFor="age">Age</label>
             <input
               type="text"
+              id="age"
               placeholder="Enter Age"
               className="form-control"
               value={age}
