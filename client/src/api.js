@@ -60,4 +60,13 @@ export const getAllExpenses = async () => {
   }
 };
 
+export const createExpense = async (expenseData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/expenses`, expenseData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 // expense section api ending
