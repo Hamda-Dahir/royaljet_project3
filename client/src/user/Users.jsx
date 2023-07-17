@@ -228,7 +228,7 @@ function Users() {
             <tbody>
               {currentUsers.map((user, index) => (
                 <tr key={user._id}>
-                  <td>{index + 1}</td>
+                  <td>{(currentPage - 1) * usersPerPage + index + 1}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.age}</td>
