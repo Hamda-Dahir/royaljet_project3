@@ -8,6 +8,7 @@ const cors = require('cors');
 
 // import the routes
 const usersRoutes = require('./routes/users.js');
+const expensesRoutes = require('./routes/expenses.js');
 
 const app = express();
 dotenv.config();
@@ -64,6 +65,7 @@ app.get('/', (req, res) => {
 
 // routes
 app.use('/users', usersRoutes);
+app.use('/expenses', expensesRoutes);
 
 app.listen(process.env.PORT, () => {
   connectDB();
