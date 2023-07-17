@@ -199,19 +199,19 @@ function Users() {
                   className="form-control me-2"
                 />
               </div>
-              <Link to="/create" className="btn btn-success me-2">
+              {/* <Link to="/create" className="btn btn-success me-2">
                 Add +
-              </Link>
-              <Button variant="primary" onClick={handleShowModal}>
+              </Link> */}
+              <Button
+                className="me-2"
+                variant="success"
+                onClick={handleShowModal}
+              >
                 Add User
               </Button>
-              <button className="btn btn-secondary">
-                <FaFileAlt className="me-2" />
-                Reports
-              </button>
               <button className="btn btn-secondary me-2" onClick={toggleReport}>
-                <FaPrint className="me-2" />
-                Print
+                <FaFileAlt className="me-2" />
+                Report
               </button>
             </div>
           </div>
