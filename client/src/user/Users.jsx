@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaFilter, FaFileAlt, FaPrint } from 'react-icons/fa';
 import UserReport from './UserReport';
 import './users.css';
+import { getAllUsers } from '../api';
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -13,19 +14,35 @@ function Users() {
   const [filterName, setFilterName] = useState('');
   const [filterAge, setFilterAge] = useState('');
 
+  // useEffect(() => {
+  //   axios
+  //     .get('http://localhost:5000/usermodel')
+  //     .then((result) => {
+  //       setUsers(result.data);
+  //       setFilteredUsers(result.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log('Error:', error);
+  //       // Handle the error or show an error message to the user.
+  //     });
+  // }, []);
+
   useEffect(() => {
-    axios
-      .get('http://localhost:3001')
-      .then((result) => {
-        setUsers(result.data);
-        setFilteredUsers(result.data);
-      })
-      .catch((err) => console.log(err));
+    const fetchUsers = async () => {
+      try {
+        const usersData = await getAllUsers();
+        setUsers(usersData);
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    };
+
+    fetchUsers();
   }, []);
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3001/delete/${id}`)
+      .delete(`http://localhost:5000/delete/${id}`)
       .then((res) => {
         console.log(res);
         window.location.reload();
@@ -132,7 +149,7 @@ function Users() {
               </tr>
             </thead>
             <tbody>
-              {currentUsers.map((user, index) => (
+              {users.map((user, index) => (
                 <tr key={user._id}>
                   <td>{index + 1}</td>
                   <td>{user.name}</td>
