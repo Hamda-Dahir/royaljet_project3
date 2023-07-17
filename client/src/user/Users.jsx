@@ -226,7 +226,7 @@ function Users() {
               </tr>
             </thead>
             <tbody>
-              {filteredUsers.map((user, index) => (
+              {currentUsers.map((user, index) => (
                 <tr key={user._id}>
                   <td>{index + 1}</td>
                   <td>{user.name}</td>
