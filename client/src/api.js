@@ -83,7 +83,7 @@ export const updateExpense = async (exenseId, expenseData) => {
 
 export const deleteExpense = async (expenseId) => {
   try {
-    const response = await axios.delete(`${BASE_URL}/expenses/${expenseIdId}`);
+    const response = await axios.delete(`${BASE_URL}/expenses/${expenseId}`);
     return response.data;
   } catch (error) {
     throw error;
