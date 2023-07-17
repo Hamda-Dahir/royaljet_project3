@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const BASE_URL = 'http://localhost:5000';
 
+// user section api starting
+
 export const getAllUsers = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/users`, {
@@ -41,3 +43,21 @@ export const deleteUser = async (userId) => {
     throw error;
   }
 };
+
+// user section api ending
+
+// expense section api starting
+export const getAllExpenses = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/expenses`, {
+      params: {
+        cache_buster: Date.now(),
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// expense section api ending
