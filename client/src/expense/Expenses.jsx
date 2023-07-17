@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom';
 import { FaFilter, FaFileAlt, FaPrint } from 'react-icons/fa';
 import ExpenseReport from './ExpenseReport';
 import './expenses.css';
-import { getAllExpenses, createExpense } from '../api';
+import {
+  getAllExpenses,
+  createExpense,
+  updateExpense,
+  deleteExpense,
+} from '../api';
 import AddExpenseForm from './AddExpense';
 import UpdateExpenseForm from './UpdateExpenseForm';
 import { Modal, Button, Form } from 'react-bootstrap';
@@ -93,7 +98,7 @@ function Expenses() {
   };
 
   const filteredExpenses = expenses.filter((expense) =>
-    expense.name.toLowerCase().includes(filterName.toLowerCase())
+    expense.description.toLowerCase().includes(filterName.toLowerCase())
   );
 
   // State to handle showing the printable report
