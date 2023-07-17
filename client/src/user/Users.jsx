@@ -16,9 +16,8 @@ function Users() {
   const [showAddUserModal, setShowAddUserModal] = useState(false);
   // const [filteredUsers, setFilteredUsers] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [usersPerPage] = useState(5);
+  const [usersPerPage] = useState(8);
   const [filterName, setFilterName] = useState('');
-  const [filterAge, setFilterAge] = useState('');
   const [newUserData, setNewUserData] = useState({
     name: '',
     email: '',
@@ -167,11 +166,6 @@ function Users() {
 
   //   setFilteredUsers(filteredResults);
   // };
-
-  const handleResetFilter = () => {
-    setFilterName('');
-    // setFilteredUsers(users);
-  };
 
   // State to handle showing the printable report
   const [showReport, setShowReport] = useState(false);
