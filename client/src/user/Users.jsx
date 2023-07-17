@@ -187,7 +187,7 @@ function Users() {
       ) : (
         <div className="bg-white rounded p-3">
           <div className="d-flex justify-content-between align-items-center mb-3">
-            <h2 className="mb-0">Users</h2>
+            <h2 className="mb-0">Users Data</h2>
             <div className="d-flex align-items-center">
               <div className="d-flex align-items-center me-3">
                 <span className="me-2">Search: </span>
@@ -240,6 +240,7 @@ function Users() {
                       Update
                     </Link> */}
                     <Button
+                      className="me-2"
                       variant="info"
                       onClick={() => handleShowUpdateModal(user)}
                     >
