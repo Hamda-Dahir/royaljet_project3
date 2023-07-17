@@ -6,9 +6,11 @@ import UserReport from './UserReport';
 import './users.css';
 import { getAllUsers, createUser, updateUser, deleteUser } from '../api';
 import AddUserForm from './AddUser';
+import { Modal, Button } from 'react-bootstrap';
 
 function Users() {
   const [users, setUsers] = useState([]);
+  const [showAddUserModal, setShowAddUserModal] = useState(false);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(5);
@@ -31,6 +33,14 @@ function Users() {
     } catch (error) {
       console.error('Error fetching users:', error);
     }
+  };
+
+  const handleShowModal = () => {
+    setShowAddUserModal(true); // Open the modal
+  };
+
+  const handleCloseModal = () => {
+    setShowAddUserModal(false); // Close the modal
   };
 
   // const handleInputChange = (event) => {
@@ -176,7 +186,9 @@ function Users() {
               <Link to="/create" className="btn btn-success me-2">
                 Add +
               </Link>
-              <Link to="/add-user">Add User</Link>
+              <Button variant="primary" onClick={handleShowModal}>
+                Add User
+              </Button>
               <button className="btn btn-secondary">
                 <FaFileAlt className="me-2" />
                 Reports
@@ -245,6 +257,15 @@ function Users() {
               ))}
             </ul>
           </nav>
+          {/* Modal to display the "Add User" form */}
+          <Modal show={showAddUserModal} onHide={handleCloseModal} centered>
+            <Modal.Header closeButton>
+              <Modal.Title>Add User</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <AddUserForm onClose={handleCloseModal} />
+            </Modal.Body>
+          </Modal>
         </div>
       )}
     </div>

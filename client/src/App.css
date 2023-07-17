@@ -82,3 +82,39 @@
     margin-left: 0;
   }
 }
+
+/* Custom CSS */
+.add-user-container {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Light gray background with transparency */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.modal-header {
+  background-color: #007bff; /* Blue header background color */
+  color: #fff; /* White header text color */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.modal-body {
+  background-color: #fff; /* White body background color */
+}
+
+.modal-footer {
+  background-color: #f9f9f9; /* Light gray footer background color */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
