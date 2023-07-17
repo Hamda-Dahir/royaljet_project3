@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { FaFilter, FaFileAlt, FaPrint } from 'react-icons/fa';
 import UserReport from './UserReport';
 import './users.css';
-import { getAllUsers } from '../api';
+import { getAllUsers, createUser, updateUser, deleteUser } from '../api';
+import AddUserForm from './AddUser';
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -13,42 +14,89 @@ function Users() {
   const [usersPerPage] = useState(5);
   const [filterName, setFilterName] = useState('');
   const [filterAge, setFilterAge] = useState('');
-
-  // useEffect(() => {
-  //   axios
-  //     .get('http://localhost:5000/usermodel')
-  //     .then((result) => {
-  //       setUsers(result.data);
-  //       setFilteredUsers(result.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log('Error:', error);
-  //       // Handle the error or show an error message to the user.
-  //     });
-  // }, []);
+  const [newUserData, setNewUserData] = useState({
+    name: '',
+    email: '',
+    age: 0,
+  });
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const usersData = await getAllUsers();
-        setUsers(usersData);
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };
-
     fetchUsers();
   }, []);
 
-  const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:5000/delete/${id}`)
-      .then((res) => {
-        console.log(res);
-        window.location.reload();
-      })
-      .catch((err) => console.log(err));
+  const fetchUsers = async () => {
+    try {
+      const usersData = await getAllUsers();
+      setUsers(usersData);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
   };
+
+  // const handleInputChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setNewUserData((prevUserData) => ({
+  //     ...prevUserData,
+  //     [name]: value,
+  //   }));
+  // };
+
+  // const handleCreateUser = async () => {
+  //   try {
+  //     const newUser = await createUser(newUserData);
+  //     setUsers((prevUsers) => [...prevUsers, newUser]);
+  //     setNewUserData({
+  //       name: '',
+  //       email: '',
+  //       age: 0,
+  //     });
+  //   } catch (error) {
+  //     console.error('Error creating user:', error);
+  //   }
+  // };
+
+  const handleUpdateUser = async (userId) => {
+    try {
+      const updatedUser = await updateUser(userId, newUserData);
+      setUsers((prevUsers) =>
+        prevUsers.map((user) => (user._id === userId ? updatedUser : user))
+      );
+    } catch (error) {
+      console.error('Error updating user:', error);
+    }
+  };
+
+  const handleDeleteUser = async (userId) => {
+    try {
+      await deleteUser(userId);
+      setUsers((prevUsers) => prevUsers.filter((user) => user._id !== userId));
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
+
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     try {
+  //       const usersData = await getAllUsers();
+  //       setUsers(usersData);
+  //     } catch (error) {
+  //       console.error('Error fetching users:', error);
+  //     }
+  //   };
+
+  //   fetchUsers();
+  // }, []);
+
+  // const handleDelete = (id) => {
+  //   axios
+  //     .delete(`http://localhost:5000/delete/${id}`)
+  //     .then((res) => {
+  //       console.log(res);
+  //       window.location.reload();
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   const handleFilterChange = () => {
     let filteredResults = users;
@@ -128,6 +176,7 @@ function Users() {
               <Link to="/create" className="btn btn-success me-2">
                 Add +
               </Link>
+              <Link to="/add-user">Add User</Link>
               <button className="btn btn-secondary">
                 <FaFileAlt className="me-2" />
                 Reports
@@ -157,14 +206,16 @@ function Users() {
                   <td>{user.age}</td>
                   <td>
                     <Link
-                      to={`/update/${user._id}`}
+                      // to={`/update/${user._id}`}
+                      onClick={() => handleUpdateUser(user._id)}
                       className="btn btn-success me-2"
                     >
                       Update
                     </Link>
                     <button
                       className="btn btn-danger"
-                      onClick={() => handleDelete(user._id)}
+                      // onClick={() => handleDelete(user._id)}
+                      onClick={() => handleDeleteUser(user._id)}
                     >
                       Delete
                     </button>
