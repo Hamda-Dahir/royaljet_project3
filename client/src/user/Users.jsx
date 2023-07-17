@@ -7,14 +7,14 @@ import './users.css';
 import { getAllUsers, createUser, updateUser, deleteUser } from '../api';
 import AddUserForm from './AddUser';
 import UpdateUserForm from './UpdateUserForm';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Form } from 'react-bootstrap';
 
 function Users() {
   const [users, setUsers] = useState([]);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [showAddUserModal, setShowAddUserModal] = useState(false);
-  const [filteredUsers, setFilteredUsers] = useState([]);
+  // const [filteredUsers, setFilteredUsers] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(5);
   const [filterName, setFilterName] = useState('');
@@ -117,6 +117,16 @@ function Users() {
     }
   };
 
+  // filter by name
+
+  const handleFilterChange = (event) => {
+    setFilterName(event.target.value);
+  };
+
+  const filteredUsers = users.filter((user) =>
+    user.name.toLowerCase().includes(filterName.toLowerCase())
+  );
+
   // useEffect(() => {
   //   const fetchUsers = async () => {
   //     try {
@@ -140,28 +150,27 @@ function Users() {
   //     .catch((err) => console.log(err));
   // };
 
-  const handleFilterChange = () => {
-    let filteredResults = users;
+  // const handleFilterChange = () => {
+  //   let filteredResults = users;
 
-    if (filterName) {
-      filteredResults = filteredResults.filter((user) =>
-        user.name.toLowerCase().includes(filterName.toLowerCase())
-      );
-    }
+  //   if (filterName) {
+  //     filteredResults = filteredResults.filter((user) =>
+  //       user.name.toLowerCase().includes(filterName.toLowerCase())
+  //     );
+  //   }
 
-    if (filterAge) {
-      filteredResults = filteredResults.filter((user) =>
-        user.age.toString().includes(filterAge)
-      );
-    }
+  //   if (filterAge) {
+  //     filteredResults = filteredResults.filter((user) =>
+  //       user.age.toString().includes(filterAge)
+  //     );
+  //   }
 
-    setFilteredUsers(filteredResults);
-  };
+  //   setFilteredUsers(filteredResults);
+  // };
 
   const handleResetFilter = () => {
     setFilterName('');
-    setFilterAge('');
-    setFilteredUsers(users);
+    // setFilteredUsers(users);
   };
 
   // State to handle showing the printable report
@@ -187,34 +196,15 @@ function Users() {
             <h2 className="mb-0">Users</h2>
             <div className="d-flex align-items-center">
               <div className="d-flex align-items-center me-3">
-                <span className="me-2">Name:</span>
+                <span className="me-2">Search: </span>
                 <input
                   type="text"
                   value={filterName}
-                  onChange={(e) => setFilterName(e.target.value)}
+                  onChange={handleFilterChange}
+                  placeholder="Filter by name..."
                   className="form-control me-2"
                 />
-                <span className="me-2">Age:</span>
-                <input
-                  type="text"
-                  value={filterAge}
-                  onChange={(e) => setFilterAge(e.target.value)}
-                  className="form-control"
-                />
               </div>
-              <button
-                onClick={handleFilterChange}
-                className="btn btn-primary me-2"
-              >
-                <FaFilter className="me-2" />
-                Filter
-              </button>
-              <button
-                onClick={handleResetFilter}
-                className="btn btn-secondary me-2"
-              >
-                Reset
-              </button>
               <Link to="/create" className="btn btn-success me-2">
                 Add +
               </Link>
@@ -242,7 +232,7 @@ function Users() {
               </tr>
             </thead>
             <tbody>
-              {users.map((user, index) => (
+              {filteredUsers.map((user, index) => (
                 <tr key={user._id}>
                   <td>{index + 1}</td>
                   <td>{user.name}</td>
