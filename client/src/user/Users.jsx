@@ -6,10 +6,13 @@ import UserReport from './UserReport';
 import './users.css';
 import { getAllUsers, createUser, updateUser, deleteUser } from '../api';
 import AddUserForm from './AddUser';
+import UpdateUserForm from './UpdateUserForm';
 import { Modal, Button } from 'react-bootstrap';
 
 function Users() {
   const [users, setUsers] = useState([]);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
   const [showAddUserModal, setShowAddUserModal] = useState(false);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,6 +36,25 @@ function Users() {
     } catch (error) {
       console.error('Error fetching users:', error);
     }
+  };
+
+  const handleShowUpdateModal = (user) => {
+    setSelectedUser(user);
+    setShowUpdateModal(true);
+  };
+
+  const handleCloseUpdateModal = () => {
+    setSelectedUser(null);
+    setShowUpdateModal(false);
+  };
+
+  const handleUpdateUser = (updatedUser) => {
+    // Update the state with the updated user data
+    setUsers((prevUsers) =>
+      prevUsers.map((user) =>
+        user._id === updatedUser._id ? updatedUser : user
+      )
+    );
   };
 
   const handleShowModal = () => {
@@ -75,16 +97,16 @@ function Users() {
   //   }
   // };
 
-  const handleUpdateUser = async (userId) => {
-    try {
-      const updatedUser = await updateUser(userId, newUserData);
-      setUsers((prevUsers) =>
-        prevUsers.map((user) => (user._id === userId ? updatedUser : user))
-      );
-    } catch (error) {
-      console.error('Error updating user:', error);
-    }
-  };
+  // const handleUpdateUser = async (userId) => {
+  //   try {
+  //     const updatedUser = await updateUser(userId, newUserData);
+  //     setUsers((prevUsers) =>
+  //       prevUsers.map((user) => (user._id === userId ? updatedUser : user))
+  //     );
+  //   } catch (error) {
+  //     console.error('Error updating user:', error);
+  //   }
+  // };
 
   const handleDeleteUser = async (userId) => {
     try {
@@ -227,13 +249,18 @@ function Users() {
                   <td>{user.email}</td>
                   <td>{user.age}</td>
                   <td>
-                    <Link
-                      // to={`/update/${user._id}`}
+                    {/* <Link
                       onClick={() => handleUpdateUser(user._id)}
                       className="btn btn-success me-2"
                     >
                       Update
-                    </Link>
+                    </Link> */}
+                    <Button
+                      variant="info"
+                      onClick={() => handleShowUpdateModal(user)}
+                    >
+                      Edit
+                    </Button>
                     <button
                       className="btn btn-danger"
                       // onClick={() => handleDelete(user._id)}
@@ -277,6 +304,27 @@ function Users() {
                 onAddUser={handleAddUser}
                 onClose={handleCloseModal}
               />
+            </Modal.Body>
+          </Modal>
+
+          {/* edit modal */}
+
+          <Modal
+            show={showUpdateModal}
+            onHide={handleCloseUpdateModal}
+            centered
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Update User</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {selectedUser && (
+                <UpdateUserForm
+                  user={selectedUser}
+                  onUpdate={handleUpdateUser}
+                  onClose={handleCloseUpdateModal}
+                />
+              )}
             </Modal.Body>
           </Modal>
         </div>
