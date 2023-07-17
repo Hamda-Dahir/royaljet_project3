@@ -47,12 +47,12 @@ function SidebarMenu() {
               </li>
               <li class="nav-item text-white fs-4 ml-1 py-2 py-sm-0">
                 <a
-                  href="#"
+                  href="/expenses"
                   class="nav-link text-white fs-5"
                   aria-current="page"
                 >
                   <i className="bi bi-grid"></i>
-                  <span className="ms-3 d-none d-sm-inline">Product</span>
+                  <span className="ms-3 d-none d-sm-inline">Expenses</span>
                 </a>
               </li>
               <li class="nav-item text-white fs-4 ml-1 py-2 py-sm-0">
@@ -62,7 +62,7 @@ function SidebarMenu() {
                   aria-current="page"
                 >
                   <i className="bi bi-people"></i>
-                  <span className="ms-3 d-none d-sm-inline">Customers</span>
+                  <span className="ms-3 d-none d-sm-inline">Users</span>
                 </a>
               </li>
             </ul>
