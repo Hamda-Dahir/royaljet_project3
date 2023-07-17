@@ -35,12 +35,12 @@ function CreateUser() {
           </div>
           <div className="mb-2">
             <label htmlFor="">Email</label>
-            <input
+            {/* <input
               type="email"
               placeholder="Enter Email"
               className="form-control"
               onChange={(e) => setEmail(e.target.value)}
-            />
+            /> */}
           </div>
           <div className="mb-2">
             <label htmlFor="">Age</label>
