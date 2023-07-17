@@ -28,8 +28,8 @@ function Users() {
 
   const fetchUsers = async () => {
     try {
-      const usersData = await getAllUsers();
-      setUsers(usersData);
+      const data = await getAllUsers();
+      setUsers(data);
     } catch (error) {
       console.error('Error fetching users:', error);
     }
@@ -47,7 +47,7 @@ function Users() {
     try {
       await createUser(userData);
       handleCloseModal();
-      fetchUsers(); // Refresh the list after adding a user
+      fetchUsers(); // Fetch users again after adding a new user
     } catch (error) {
       console.error('Error creating user:', error);
     }
