@@ -7,13 +7,14 @@ const AddExpenseForm = ({ onClose }) => {
   const navigate = useNavigate();
   const [newExpenseData, setNewExpenseData] = useState({
     description: '',
-    amount: 0,
+    amount: '',
     date: '',
     category: '',
   });
 
   const handleInputChange = (event) => {
     const { description, value } = event.target;
+    console.log('Input changed:', description, value);
     setNewExpenseData((prevExpenseData) => ({
       ...prevExpenseData,
       [description]: value,
@@ -32,7 +33,7 @@ const AddExpenseForm = ({ onClose }) => {
 
   return (
     <Form>
-      <Form.Group controlId="formDescription">
+      <Form.Group controlId="formName">
         <Form.Label>Description</Form.Label>
         <Form.Control
           type="text"
