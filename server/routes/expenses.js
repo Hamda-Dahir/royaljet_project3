@@ -38,6 +38,20 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update a expenses by ID
+router.put('/:id', async (req, res) => {
+  const id = req.params.id;
+  try {
+    const updatedExpense = await ExpensesModel.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    if (!updatedExpense) {
+      return res.status(404).json({ message: 'Expense not found' });
+    }
+    res.json(updatedExpense);
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating Expense', error });
+  }
+});
 
 // Delete a expenses by ID
 
