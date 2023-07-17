@@ -252,7 +252,7 @@ function Users() {
                       Edit
                     </Button>
                     <button
-                      className="btn btn-danger"
+                      className="btn btn-danger "
                       // onClick={() => handleDelete(user._id)}
                       onClick={() => handleDeleteUser(user._id)}
                     >
