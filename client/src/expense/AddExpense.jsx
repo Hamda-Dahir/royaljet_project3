@@ -13,11 +13,10 @@ const AddExpenseForm = ({ onClose }) => {
   });
 
   const handleInputChange = (event) => {
-    const { description, value } = event.target;
-    console.log('Input changed:', description, value);
+    const { name, value } = event.target;
     setNewExpenseData((prevExpenseData) => ({
       ...prevExpenseData,
-      [description]: value,
+      [name]: value,
     }));
   };
 
@@ -37,7 +36,7 @@ const AddExpenseForm = ({ onClose }) => {
         <Form.Label>Description</Form.Label>
         <Form.Control
           type="text"
-          name="description"
+          name="description" // should be "description"
           value={newExpenseData.description}
           placeholder="Enter description"
           onChange={handleInputChange}
