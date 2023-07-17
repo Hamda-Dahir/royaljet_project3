@@ -14,6 +14,14 @@ router.post('/', async (req, res) => {
 });
 
 // Get all expenses
+router.get('/', async (req, res) => {
+  try {
+    const expenses = await ExpensesModel.find({});
+    res.json(expenses);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching expenses', error });
+  }
+});
 
 // Get a single expenses by ID
 
