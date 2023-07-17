@@ -54,5 +54,17 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a expenses by ID
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+  try {
+    const deletedExpense = await ExpensesModel.findByIdAndRemove(id);
+    if (!deletedExpense) {
+      return res.status(404).json({ message: 'Expense not found' });
+    }
+    res.json(deletedExpense);
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting Expense', error });
+  }
+});
 
 module.exports = router;
