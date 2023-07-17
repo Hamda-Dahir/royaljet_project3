@@ -4,7 +4,11 @@ const BASE_URL = 'http://localhost:5000';
 
 export const getAllUsers = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/users`);
+    const response = await axios.get(`${BASE_URL}/users`, {
+      params: {
+        cache_buster: Date.now(),
+      },
+    });
     return response.data;
   } catch (error) {
     throw error;

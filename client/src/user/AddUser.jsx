@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../api';
-import { Form, Button } from 'react-bootstrap'; // Import the Form and Button components
+import { Form, Button } from 'react-bootstrap';
 
 const AddUserForm = ({ onClose }) => {
   const navigate = useNavigate();

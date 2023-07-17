@@ -43,6 +43,16 @@ function Users() {
     setShowAddUserModal(false); // Close the modal
   };
 
+  const handleAddUser = async (userData) => {
+    try {
+      await createUser(userData);
+      handleCloseModal();
+      fetchUsers(); // Refresh the list after adding a user
+    } catch (error) {
+      console.error('Error creating user:', error);
+    }
+  };
+
   // const handleInputChange = (event) => {
   //   const { name, value } = event.target;
   //   setNewUserData((prevUserData) => ({
@@ -263,7 +273,10 @@ function Users() {
               <Modal.Title>Add User</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <AddUserForm onClose={handleCloseModal} />
+              <AddUserForm
+                onAddUser={handleAddUser}
+                onClose={handleCloseModal}
+              />
             </Modal.Body>
           </Modal>
         </div>
