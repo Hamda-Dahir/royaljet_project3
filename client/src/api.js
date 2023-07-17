@@ -69,4 +69,24 @@ export const createExpense = async (expenseData) => {
   }
 };
 
+export const updateExpense = async (exenseId, expenseData) => {
+  try {
+    const response = await axios.put(
+      `${BASE_URL}/expenses/${exenseId}`,
+      expenseData
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const deleteExpense = async (expenseId) => {
+  try {
+    const response = await axios.delete(`${BASE_URL}/expenses/${expenseIdId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 // expense section api ending
