@@ -69,10 +69,10 @@ export const createExpense = async (expenseData) => {
   }
 };
 
-export const updateExpense = async (exenseId, expenseData) => {
+export const updateExpense = async (expenseId, expenseData) => {
   try {
     const response = await axios.put(
-      `${BASE_URL}/expenses/${exenseId}`,
+      `${BASE_URL}/expenses/${expenseId}`,
       expenseData
     );
     return response.data;
@@ -108,6 +108,18 @@ export const getAllOrders = async () => {
 export const createOrder = async (orderData) => {
   try {
     const response = await axios.post(`${BASE_URL}/orders`, orderData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const updateOrder = async (orderId, orderData) => {
+  try {
+    const response = await axios.put(
+      `${BASE_URL}/orders/${orderId}`,
+      orderData
+    );
     return response.data;
   } catch (error) {
     throw error;
