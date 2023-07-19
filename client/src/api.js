@@ -125,4 +125,13 @@ export const updateOrder = async (orderId, orderData) => {
     throw error;
   }
 };
+
+export const deleteOrder = async (orderId) => {
+  try {
+    const response = await axios.delete(`${BASE_URL}/orders/${orderId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 /* ending orders api */
