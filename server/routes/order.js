@@ -38,6 +38,20 @@ router.get('/:id', async (req, res) => {
 });
 
 // update a order by id
+router.put('/:id', async (req, res) => {
+  const id = req.params.id;
+  try {
+    const updatedOrder = await OrderModel.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    if (!updatedOrder) {
+      return res.status(404).json({ message: 'Error updating order', error });
+    }
+    res.json(updatedOrder);
+  } catch (error) {
+    res.status(500).json({ message: 'Erro updating order' });
+  }
+});
 
 // delete a order by id
 
