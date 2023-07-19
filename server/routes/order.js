@@ -24,6 +24,18 @@ router.get('/', async (req, res) => {
 });
 
 // get a single order
+router.get('/:id', async (req, res) => {
+  const id = req.params.id;
+  try {
+    const order = await OrderModel.findById(id);
+    if (!order) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+    res.json(order);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching order' });
+  }
+});
 
 // update a order by id
 
