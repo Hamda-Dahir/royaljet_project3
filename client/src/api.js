@@ -90,3 +90,27 @@ export const deleteExpense = async (expenseId) => {
   }
 };
 // expense section api ending
+
+/* starting orders api */
+export const getAllOrders = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/orders`, {
+      params: {
+        cache_buster: Date.now(),
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const createOrder = async (orderData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/orders`, orderData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+/* ending orders api */
