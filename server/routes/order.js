@@ -14,6 +14,14 @@ router.post('/', async (req, res) => {
 });
 
 // get all orders
+router.get('/', async (req, res) => {
+  try {
+    const orders = await OrderModel.find({});
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching orders', error });
+  }
+});
 
 // get a single order
 
