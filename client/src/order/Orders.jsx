@@ -59,6 +59,24 @@ function Orders() {
     );
   };
 
+  const handleShowModal = () => {
+    setShowAddOrderModal(true); // Open the modal
+  };
+
+  const handleCloseModal = () => {
+    setShowAddOrderModal(false); // Close the modal
+  };
+
+  const handleAddOrder = async (orderData) => {
+    try {
+      await createOrder(orderData);
+      handleCloseModal();
+      fetchOrders(); // Fetch orders again after adding a new expense
+    } catch (error) {
+      console.error('Error creating order:', error);
+    }
+  };
+
   return <div>Orders</div>;
 }
 
