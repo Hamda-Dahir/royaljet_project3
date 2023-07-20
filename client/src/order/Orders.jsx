@@ -114,7 +114,150 @@ function Orders() {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  return <div>Orders</div>;
+  return (
+    <div className="container py-5">
+      {showReport ? ( // If showReport is true, show the printable report
+        <OrderReport orders={orders} />
+      ) : (
+        <div className="bg-white rounded p-3">
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <h2 className="mb-0">Orders Data</h2>
+            <div className="d-flex align-items-center">
+              <div className="d-flex align-items-center me-3">
+                <span className="me-2">Search: </span>
+                <input
+                  type="text"
+                  value={filterName}
+                  onChange={handleFilterChange}
+                  placeholder="Filter by name..."
+                  className="form-control me-2"
+                />
+              </div>
+              {/* <Link to="/create" className="btn btn-success me-2">
+                  Add +
+                </Link> */}
+              <Button
+                className="me-2"
+                variant="success"
+                onClick={handleShowModal}
+              >
+                Add Order
+              </Button>
+              <button className="btn btn-secondary me-2" onClick={toggleReport}>
+                <FaFileAlt className="me-2" />
+                Report
+              </button>
+            </div>
+          </div>
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>FullName</th>
+                <th>Phone</th>
+                <th>Date</th>
+                <th>Detail</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>PaymentType</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentOrders.map((order, index) => (
+                <tr key={order._id}>
+                  <td>{(currentPage - 1) * ordersPerPage + index + 1}</td>
+                  <td>{order.fullName}</td>
+                  <td>{order.phone}</td>
+                  <td>{order.date}</td>
+                  <td>{order.details}</td>
+                  <td>{order.category}</td>
+                  <td>{order.price}</td>
+                  <td>{order.paymentType}</td>
+                  <td>
+                    {/* <Link
+                        onClick={() => handleUpdateUser(user._id)}
+                        className="btn btn-success me-2"
+                      >
+                        Update
+                      </Link> */}
+                    <Button
+                      className="me-2"
+                      variant="info"
+                      onClick={() => handleShowUpdateModal(order)}
+                    >
+                      Edit
+                    </Button>
+                    <button
+                      className="btn btn-danger "
+                      // onClick={() => handleDelete(user._id)}
+                      onClick={() => handleDeleteOrder(order._id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <nav className="d-flex justify-content-center">
+            <ul className="pagination">
+              {Array.from({
+                length: Math.ceil(filteredOrders.length / ordersPerPage),
+              }).map((_, index) => (
+                <li
+                  key={index}
+                  className={`page-item ${
+                    currentPage === index + 1 ? 'active' : ''
+                  }`}
+                >
+                  <button
+                    onClick={() => paginate(index + 1)}
+                    className="page-link"
+                  >
+                    {index + 1}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          {/* Modal to display the "Add Orders" form */}
+          <Modal show={showAddOrderModal} onHide={handleCloseModal} centered>
+            <Modal.Header closeButton>
+              <Modal.Title>Add Order</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <AddOrderForm
+                onAddOrder={handleAddOrder}
+                onClose={handleCloseModal}
+              />
+            </Modal.Body>
+          </Modal>
+
+          {/* edit modal */}
+
+          <Modal
+            show={showUpdateModal}
+            onHide={handleCloseUpdateModal}
+            centered
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Update Order</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {selectedOrder && (
+                <UpdateOrderForm
+                  order={selectedOrder}
+                  onUpdate={handleUpdateOrder}
+                  onClose={handleCloseUpdateModal}
+                />
+              )}
+            </Modal.Body>
+          </Modal>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default Orders;
