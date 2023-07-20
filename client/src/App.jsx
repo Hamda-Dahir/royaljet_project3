@@ -11,6 +11,8 @@ import Header from './Dashboard/Header';
 import AddUser from './user/AddUser';
 import Expenses from './expense/Expenses';
 import AddExpense from './expense/AddExpense';
+import Orders from './order/Orders';
+import AddOrder from './order/AddOrder';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,6 +29,8 @@ function App() {
           <div className="content">
             <Routes>
               <Route path="/" element={<SidebarMenu />} />
+              <Route path="/orders" element={<Orders />}></Route>
+              <Route path="/add-order" element={<AddOrder />}></Route>
               <Route path="/expenses" element={<Expenses />}></Route>
               <Route path="/add-expense" element={<AddExpense />} />
               <Route path="/users" element={<Users />}></Route>
