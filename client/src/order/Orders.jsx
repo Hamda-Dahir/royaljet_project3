@@ -41,6 +41,24 @@ function Orders() {
     }
   };
 
+  const handleShowUpdateModal = (order) => {
+    setSelectedOrder(order);
+    setShowUpdateModal(true);
+  };
+
+  const handleCloseUpdateModal = () => {
+    setSelectedOrder(null);
+    setShowUpdateModal(false);
+  };
+
+  const handleUpdateOrder = (updatedOrder) => {
+    setOrders((prevOrders) =>
+      prevOrders.map((order) =>
+        order._id === updatedOrder._id ? updatedOrder : order
+      )
+    );
+  };
+
   return <div>Orders</div>;
 }
 
