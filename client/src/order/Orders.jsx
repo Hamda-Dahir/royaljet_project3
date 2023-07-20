@@ -77,6 +77,43 @@ function Orders() {
     }
   };
 
+  const handleDeleteOrder = async (orderId) => {
+    try {
+      await deleteOrder(orderId);
+      setOrders((prevOrders) =>
+        prevOrders.filter((order) => order._id !== orderId)
+      );
+    } catch (error) {
+      console.error('Error deleting order:', error);
+    }
+  };
+
+  // filter by name
+
+  const handleFilterChange = (event) => {
+    setFilterName(event.target.value);
+  };
+
+  const filteredOrders = orders.filter((order) =>
+    order.description.toLowerCase().includes(filterName.toLowerCase())
+  );
+
+  // State to handle showing the printable report
+  const [showReport, setShowReport] = useState(false);
+
+  // Function to toggle the printable report
+  const toggleReport = () => setShowReport(!showReport);
+
+  // Pagination
+  const indexOfLastOrder = currentPage * ordersPerPage;
+  const indexOfFirstOrder = indexOfLastOrder - ordersPerPage;
+  const currentOrders = filteredOrders.slice(
+    indexOfFirstOrder,
+    indexOfLastOrder
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return <div>Orders</div>;
 }
 
