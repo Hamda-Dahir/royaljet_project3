@@ -37,6 +37,7 @@ const AddExpenseForm = ({ onClose }) => {
         <Form.Control
           type="text"
           name="description" // should be "description"
+          className="mt-2 form-control rounded-0 w-100"
           value={newExpenseData.description}
           placeholder="Enter description"
           onChange={handleInputChange}
@@ -49,6 +50,7 @@ const AddExpenseForm = ({ onClose }) => {
         <Form.Control
           type="number"
           name="amount"
+          className="mt-2 form-control rounded-0 w-100"
           value={newExpenseData.amount}
           placeholder="Enter price"
           onChange={handleInputChange}
@@ -60,6 +62,7 @@ const AddExpenseForm = ({ onClose }) => {
         <Form.Control
           type="date"
           name="date"
+          className="mt-2 form-control rounded-0 w-100"
           value={newExpenseData.date}
           onChange={handleInputChange}
           required
@@ -71,6 +74,7 @@ const AddExpenseForm = ({ onClose }) => {
         <Form.Control
           type="text"
           name="category"
+          className="mt-2 form-control rounded-0 w-100"
           value={newExpenseData.category}
           placeholder="Enter Category"
           onChange={handleInputChange}
@@ -78,7 +82,11 @@ const AddExpenseForm = ({ onClose }) => {
         />
       </Form.Group>
 
-      <Button variant="primary" onClick={handleAddExpense}>
+      <Button
+        variant="primary"
+        onClick={handleAddExpense}
+        className="mt-2 form-control rounded-10 w-100"
+      >
         Add Expense
       </Button>
     </Form>
