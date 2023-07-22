@@ -38,6 +38,7 @@ const UpdateExpenseForm = ({ expense, onClose, onUpdate }) => {
         <Form.Control
           type="text"
           name="description"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedExpenseData.description}
           onChange={handleInputChange}
           required
@@ -48,6 +49,7 @@ const UpdateExpenseForm = ({ expense, onClose, onUpdate }) => {
         <Form.Control
           type="number"
           name="amount"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedExpenseData.amount}
           onChange={handleInputChange}
           required
@@ -58,6 +60,7 @@ const UpdateExpenseForm = ({ expense, onClose, onUpdate }) => {
         <Form.Control
           type="date"
           name="date"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedExpenseData.date}
           onChange={handleInputChange}
           required
@@ -68,13 +71,18 @@ const UpdateExpenseForm = ({ expense, onClose, onUpdate }) => {
         <Form.Control
           type="text"
           name="category"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedExpenseData.category}
           onChange={handleInputChange}
           required
         />
       </Form.Group>
 
-      <Button variant="primary" onClick={handleUpdateExpense}>
+      <Button
+        variant="primary"
+        onClick={handleUpdateExpense}
+        className="mt-2 form-control rounded-10 w-100"
+      >
         Update Expense
       </Button>
     </Form>
