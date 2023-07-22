@@ -6,7 +6,8 @@ const UpdateUserForm = ({ user, onClose, onUpdate }) => {
   const [updatedUserData, setUpdatedUserData] = useState({
     name: user.name,
     email: user.email,
-    age: user.age,
+    password: user.password,
+    role: user.role,
   });
 
   const handleInputChange = (event) => {
@@ -51,15 +52,30 @@ const UpdateUserForm = ({ user, onClose, onUpdate }) => {
         />
       </Form.Group>
 
-      <Form.Group controlId="formAge">
-        <Form.Label>Age</Form.Label>
+      <Form.Group controlId="formPass">
+        <Form.Label>Password</Form.Label>
         <Form.Control
-          type="number"
-          name="age"
-          value={updatedUserData.age}
+          type="text"
+          name="password"
+          value={updatedUserData.password}
           onChange={handleInputChange}
           required
         />
+      </Form.Group>
+
+      <Form.Group controlId="formRole">
+        <Form.Label>Role</Form.Label>
+        <Form.Control
+          as="select" // If using a dropdown select, use "as='select'"
+          name="role"
+          value={updatedUserData.role}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="">Select Role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </Form.Control>
       </Form.Group>
 
       <Button variant="primary" onClick={handleUpdateUser}>
