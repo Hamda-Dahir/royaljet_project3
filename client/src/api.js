@@ -89,6 +89,7 @@ export const deleteExpense = async (expenseId) => {
     throw error;
   }
 };
+
 // expense section api ending
 
 /* starting orders api */
@@ -134,4 +135,5 @@ export const deleteOrder = async (orderId) => {
     throw error;
   }
 };
+
 /* ending orders api */
