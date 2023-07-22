@@ -12,6 +12,15 @@ const UpdateOrderForm = ({ order, onClose, onUpdate }) => {
     price: order.price,
     paymentType: order.paymentType,
   });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUpdatedOrderData((prevOrderData) => ({
+      ...prevOrderData,
+      [name]: value,
+    }));
+  };
+
   return <div>UpdateOrderForm</div>;
 };
 
