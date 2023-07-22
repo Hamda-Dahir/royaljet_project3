@@ -40,6 +40,7 @@ const AddOrderForm = ({ onClose }) => {
         <Form.Control
           type="text"
           name="fullname" // should be "description"
+          className="form-control rounded-0 w-100"
           value={newOrderData.fullname}
           placeholder="Enter fullname"
           onChange={handleInputChange}
@@ -52,6 +53,7 @@ const AddOrderForm = ({ onClose }) => {
         <Form.Control
           type="number"
           name="phone"
+          className="form-control rounded-0 w-100"
           value={newOrderData.phone}
           placeholder="Enter phone number"
           onChange={handleInputChange}
@@ -63,6 +65,7 @@ const AddOrderForm = ({ onClose }) => {
         <Form.Control
           type="date"
           name="date"
+          className="form-control rounded-0 w-100"
           value={newOrderData.date}
           onChange={handleInputChange}
           required
@@ -74,6 +77,7 @@ const AddOrderForm = ({ onClose }) => {
         <Form.Control
           type="text"
           name="details"
+          className="form-control rounded-0 w-100"
           value={newOrderData.details}
           placeholder="Enter detail"
           onChange={handleInputChange}
@@ -85,6 +89,7 @@ const AddOrderForm = ({ onClose }) => {
         <Form.Control
           type="text"
           name="category"
+          className="form-control rounded-0 w-100"
           value={newOrderData.category}
           placeholder="Enter Category"
           onChange={handleInputChange}
@@ -96,6 +101,7 @@ const AddOrderForm = ({ onClose }) => {
         <Form.Control
           type="number"
           name="price"
+          className="form-control rounded-0 w-100"
           value={newOrderData.price}
           placeholder="Enter price"
           onChange={handleInputChange}
@@ -107,6 +113,7 @@ const AddOrderForm = ({ onClose }) => {
         <Form.Control
           type="text"
           name="paymentType"
+          className="form-control rounded-0 w-100"
           value={newOrderData.paymentType}
           placeholder="Enter payment type"
           onChange={handleInputChange}
@@ -114,7 +121,11 @@ const AddOrderForm = ({ onClose }) => {
         />
       </Form.Group>
 
-      <Button variant="primary" onClick={handleAddOrder}>
+      <Button
+        variant="primary"
+        onClick={handleAddOrder}
+        className="mt-2 form-control rounded-10 w-100"
+      >
         Add Order
       </Button>
     </Form>
