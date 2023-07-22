@@ -13,7 +13,7 @@ const Header = ({ userName }) => {
     <header
       className="header"
       style={{
-        backgroundColor: '#333',
+        backgroundColor: '#000045',
         color: '#fff',
         padding: '10px',
         display: 'flex',

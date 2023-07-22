@@ -6,7 +6,7 @@
 }
 
 .header {
-  background-color: #333;
+  background-color: #00008b;
   color: #fff;
   padding: 10px;
   text-align: center;
@@ -27,7 +27,7 @@
 
 .sidebar {
   flex: 0 0 210px;
-  background-color: #333;
+  background-color: #000045;
   color: #fff;
   padding: 10px;
 }
