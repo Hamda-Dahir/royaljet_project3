@@ -17,6 +17,7 @@ import AddOrder from './order/AddOrder';
 // import Login from './Login';
 import Stats from './stats/Stats';
 import Signup from './auth/Signup';
+import Login from './auth/Login';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,7 +27,10 @@ function App() {
     <div className="app-container">
       <BrowserRouter>
         <div className="">
-          <Signup />
+          {/* <Signup /> */}
+          {/* <Routes>
+            <Route path="/login" element={<Login />} />
+          </Routes> */}
         </div>
         <Header userName={userName} />
         <div className="middle-section">
@@ -37,6 +41,8 @@ function App() {
             <Routes>
               {/* <Route path="/Signup" element={<Signup />} /> */}
               <Route path="/" element={<Stats />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
               <Route path="/dashboard" element={<SidebarMenu />} />
               {/* <Route path="/register" element={<Signup />} /> */}
               <Route path="/orders" element={<Orders />}></Route>
