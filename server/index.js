@@ -4,7 +4,7 @@ const connectDB = require('./database/database.js');
 const cors = require('cors');
 // const bcrypt = require('bcrypt');
 
-// const UserModel = require('./models/User.js');
+const AuthModel = require('./models/Auth');
 
 // import the routes
 const usersRoutes = require('./routes/users.js');
@@ -51,17 +51,12 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.status(200).json('This is the main page of the api');
 });
-// app.post('/register', (req, res) => {
-//   const { name, email, password } = req.body;
-//   bcrypt
-//     .hash(password, 10)
-//     .then((hash) => {
-//       UserModel.create({ name, email, password: hash })
-//         .then((user) => res.json('Success'))
-//         .catch((err) => res.json(err));
-//     })
-//     .catch((err) => res.json(err));
-// });
+
+app.post('/auth', (req, res) => {
+  AuthModel.create(req.body)
+    .then((auth) => res.json(auth))
+    .catch((err) => res.json(err));
+});
 
 // app.post('/login', (req, res) => {
 //   const { email, password } = req.body;
