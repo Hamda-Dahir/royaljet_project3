@@ -3,6 +3,17 @@ const UserModel = require('../models/User.js');
 
 const router = express.Router();
 
+// Middleware to check if the user is an admin
+function checkAdminRole(req, res, next) {
+  if (req.user.role === 'admin') {
+    // User is an admin, grant access
+    next();
+  } else {
+    // User is not an admin, deny access
+    res.status(403).json({ message: 'Access denied. You are not an admin.' });
+  }
+}
+
 // Create a new user
 router.post('/', async (req, res) => {
   try {
@@ -65,6 +76,12 @@ router.delete('/:id', async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Error deleting user', error });
   }
+});
+
+// Apply checkAdminRole middleware to the protected route
+router.get('/admin-dashboard', checkAdminRole, async (req, res) => {
+  // Handle admin dashboard logic here
+  res.json({ message: 'Welcome to the admin dashboard!' });
 });
 
 module.exports = router;
