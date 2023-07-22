@@ -8,7 +8,7 @@ function SidebarMenu() {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className=" col-auto   d-flex justify-content-between flex-column">
+        <div className="col-auto d-flex justify-content-between flex-column">
           <div>
             <a className="text-decoration-none text-white d-none d-sm-inline d-flex align-itemcenter ms-3 mt-2">
               <span className="ms-1 fs-4 d-none d-sm-inline">Brand</span>
@@ -23,16 +23,6 @@ function SidebarMenu() {
                 >
                   <i className="bi bi-speedometer2"></i>
                   <span className="ms-3 d-none d-sm-inline">Dashboard</span>
-                </a>
-              </li>
-              <li class="nav-item text-white fs-4 ml-1 py-2 py-sm-0">
-                <a
-                  href="/"
-                  class="nav-link text-white fs-5"
-                  aria-current="page"
-                >
-                  <i className="bi bi-house"></i>
-                  <span className="ms-3 d-none d-sm-inline">Home</span>
                 </a>
               </li>
               <li class="nav-item text-white fs-4 ml-1 py-2 py-sm-0">
@@ -66,28 +56,6 @@ function SidebarMenu() {
                 </a>
               </li>
             </ul>
-          </div>
-          {/* drop down section */}
-          <div class="dropdown open">
-            <a
-              className="text-decoration-none text-white dropdown-toggle p-3"
-              type="button"
-              id="triggerId"
-              data-bs-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i className="bi bi-person-circle"></i>
-              <span className="ms-2 d-none d-sm-inline">Ahmed</span>
-            </a>
-            <div class="dropdown-menu" aria-aria-labelledby="triggerId">
-              <a class="dropdown-item" href="#">
-                <span className="d-none d-sm-block">Profile</span>
-              </a>
-              <a class="dropdown-item" href="#">
-                <span className="d-none d-sm-block">Sign Out</span>
-              </a>
-            </div>
           </div>
         </div>
       </div>

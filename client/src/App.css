@@ -26,10 +26,10 @@
 }
 
 .sidebar {
-  flex: 0 0 250px;
+  flex: 0 0 210px;
   background-color: #333;
   color: #fff;
-  padding: 20px;
+  padding: 10px;
 }
 
 .sidebar h2 {
