@@ -40,7 +40,7 @@ function App() {
           <div className="content">
             <Routes>
               {/* <Route path="/Signup" element={<Signup />} /> */}
-              <Route path="/" element={<Stats />} />
+              <Route path="/stats" element={<Stats />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/dashboard" element={<SidebarMenu />} />
