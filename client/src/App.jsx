@@ -13,9 +13,10 @@ import Expenses from './expense/Expenses';
 import AddExpense from './expense/AddExpense';
 import Orders from './order/Orders';
 import AddOrder from './order/AddOrder';
-import Signup from './Signup';
-import Login from './Login';
+// import Signup from './Signup';
+// import Login from './Login';
 import Stats from './stats/Stats';
+import Signup from './auth/Signup';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,6 +25,9 @@ function App() {
   return (
     <div className="app-container">
       <BrowserRouter>
+        <div className="">
+          <Signup />
+        </div>
         <Header userName={userName} />
         <div className="middle-section">
           <div className="sidebar">
@@ -31,10 +35,10 @@ function App() {
           </div>
           <div className="content">
             <Routes>
-              {/* <Route path="/" element={<Login />} /> */}
+              {/* <Route path="/Signup" element={<Signup />} /> */}
               <Route path="/" element={<Stats />} />
               <Route path="/dashboard" element={<SidebarMenu />} />
-              <Route path="/register" element={<Signup />} />
+              {/* <Route path="/register" element={<Signup />} /> */}
               <Route path="/orders" element={<Orders />}></Route>
               <Route path="/add-order" element={<AddOrder />}></Route>
               <Route path="/expenses" element={<Expenses />}></Route>
