@@ -8,7 +8,8 @@ const AddUserForm = ({ onClose }) => {
   const [newUserData, setNewUserData] = useState({
     name: '',
     email: '',
-    age: 0,
+    password: '',
+    role: '',
   });
 
   const handleInputChange = (event) => {
@@ -55,16 +56,30 @@ const AddUserForm = ({ onClose }) => {
         />
       </Form.Group>
 
-      <Form.Group controlId="formAge">
-        <Form.Label>Age</Form.Label>
+      <Form.Group controlId="formPass">
+        <Form.Label>Password</Form.Label>
         <Form.Control
-          type="number"
-          name="age"
-          value={newUserData.age}
-          placeholder="Enter age"
+          type="text"
+          name="password"
+          value={newUserData.password}
+          placeholder="Enter password"
           onChange={handleInputChange}
           required
         />
+      </Form.Group>
+      <Form.Group controlId="formRole">
+        <Form.Label>Role</Form.Label>
+        <Form.Control
+          as="select" // If using a dropdown select, use "as='select'"
+          name="role"
+          value={newUserData.role}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="">Select Role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </Form.Control>
       </Form.Group>
 
       <Button variant="primary" onClick={handleAddUser}>

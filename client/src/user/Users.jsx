@@ -21,7 +21,7 @@ function Users() {
   const [newUserData, setNewUserData] = useState({
     name: '',
     email: '',
-    age: 0,
+    role: '',
   });
 
   useEffect(() => {
@@ -221,7 +221,7 @@ function Users() {
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Age</th>
+                <th>Role</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -231,7 +231,7 @@ function Users() {
                   <td>{(currentPage - 1) * usersPerPage + index + 1}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
-                  <td>{user.age}</td>
+                  <td>{user.role}</td>
                   <td>
                     {/* <Link
                       onClick={() => handleUpdateUser(user._id)}

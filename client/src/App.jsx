@@ -13,6 +13,8 @@ import Expenses from './expense/Expenses';
 import AddExpense from './expense/AddExpense';
 import Orders from './order/Orders';
 import AddOrder from './order/AddOrder';
+import Signup from './Signup';
+import Login from './Login';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -28,14 +30,16 @@ function App() {
           </div>
           <div className="content">
             <Routes>
-              <Route path="/" element={<SidebarMenu />} />
+              <Route path="/dashboard" element={<SidebarMenu />} />
+              <Route path="/dashboard" element={<SidebarMenu />} />
+              <Route path="/register" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/orders" element={<Orders />}></Route>
               <Route path="/add-order" element={<AddOrder />}></Route>
               <Route path="/expenses" element={<Expenses />}></Route>
               <Route path="/add-expense" element={<AddExpense />} />
               <Route path="/users" element={<Users />}></Route>
               <Route path="/add-user" element={<AddUser />} />
-              {/* <Route path="/create" element={<CreateUser />}></Route> */}
               <Route path="/update/:id" element={<UpdateUser />}></Route>
             </Routes>
           </div>
