@@ -34,12 +34,12 @@
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #000045;
   color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #000045;
 }
 
 .btn-secondary {
@@ -67,16 +67,16 @@
 }
 
 .pagination .page-item .page-link {
-  color: #007bff;
+  color: #000045;
 }
 
 .pagination .page-item.active .page-link {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #000045;
+  border-color: #000045;
   color: white;
 }
 
 .pagination .page-item.active .page-link:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  background-color: #000045;
+  border-color: #000045;
 }
