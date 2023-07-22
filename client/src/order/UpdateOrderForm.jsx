@@ -38,6 +38,7 @@ const UpdateOrderForm = ({ order, onClose, onUpdate }) => {
         <Form.Control
           type="text"
           name="fullname"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedOrderData.fullname}
           onChange={handleInputChange}
           required
@@ -48,6 +49,7 @@ const UpdateOrderForm = ({ order, onClose, onUpdate }) => {
         <Form.Control
           type="number"
           name="phone"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedOrderData.phone}
           onChange={handleInputChange}
           required
@@ -58,6 +60,7 @@ const UpdateOrderForm = ({ order, onClose, onUpdate }) => {
         <Form.Control
           type="date"
           name="date"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedOrderData.dadte}
           onChange={handleInputChange}
           required
@@ -68,6 +71,7 @@ const UpdateOrderForm = ({ order, onClose, onUpdate }) => {
         <Form.Control
           type="text"
           name="details"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedOrderData.details}
           onChange={handleInputChange}
           required
@@ -78,6 +82,7 @@ const UpdateOrderForm = ({ order, onClose, onUpdate }) => {
         <Form.Control
           type="text"
           name="category"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedOrderData.category}
           onChange={handleInputChange}
           required
@@ -88,6 +93,7 @@ const UpdateOrderForm = ({ order, onClose, onUpdate }) => {
         <Form.Control
           type="number"
           name="price"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedOrderData.price}
           onChange={handleInputChange}
           required
@@ -98,13 +104,18 @@ const UpdateOrderForm = ({ order, onClose, onUpdate }) => {
         <Form.Control
           type="text"
           name="paymentType"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedOrderData.paymentType}
           onChange={handleInputChange}
           required
         />
       </Form.Group>
 
-      <Button variant="primary" onClick={handleUpdateOrder}>
+      <Button
+        variant="primary"
+        onClick={handleUpdateOrder}
+        className="mt-2 form-control rounded-10 w-100"
+      >
         Update Order
       </Button>
     </Form>
