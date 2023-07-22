@@ -1,82 +1,73 @@
-// Login.jsx
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { login } from './api'; // Make sure this import is correct
+import axios from 'axios';
 
-function Login({ setIsAuthenticated }) {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+function Login() {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const navigate = useNavigate();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await login(formData);
-      // Assuming the API returns { success: true, role: 'admin' } on successful login
-      if (response.success) {
-        setIsAuthenticated(true); // Set isAuthenticated to true on successful login
-        setFormData({
-          email: '',
-          password: '',
-        });
-        setError(null);
-        navigate('/dashboard'); // Redirect to the dashboard or any other authenticated route
-      } else {
-        setError('Invalid credentials. Please try again.');
-      }
-    } catch (error) {
-      setError('Error during login. Please try again.');
-    } finally {
-      setLoading(false);
-    }
+  axios.defaults.withCredentials = true;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post('http://localhost:3001/login', { email, password })
+      .then((res) => {
+        console.log('login: ' + res.data);
+        if (res.data.Status === 'Success') {
+          if (res.data.role === 'admin') {
+            navigate('/dashboard');
+          } else {
+            navigate('/');
+          }
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        {error && <p className="error">{error}</p>}
-        <button type="submit" disabled={loading}>
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
-        <p>
-          Don't have an account? <Link to="/register">Sign up</Link>
-        </p>
-      </form>
+    <div className="d-flex justify-content-center align-items-center bg-secondary vh-100 vw-100">
+      <div className="bg-white p-3 rounded w-25">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="email">
+              <strong>Email</strong>
+            </label>
+            <input
+              type="email"
+              placeholder="Enter Email"
+              autoComplete="off"
+              name="email"
+              className="form-control rounded-0 w-100"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="email">
+              <strong>Password</strong>
+            </label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              className="form-control rounded-0 w-100"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button type="submit" className="btn btn-success w-100 rounded-0">
+            Login
+          </button>
+        </form>
+        <p>Already Have an Account</p>
+        <Link
+          to="/register"
+          className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"
+        >
+          Sign Up
+        </Link>
+      </div>
     </div>
   );
 }

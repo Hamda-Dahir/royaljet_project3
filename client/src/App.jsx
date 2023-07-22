@@ -23,8 +23,9 @@ function App() {
     <div className="app-container">
       <BrowserRouter>
         <Routes>
+          <Route path="/register" element={<Signup />} />
           <Route
-            path="/"
+            path="/login"
             element={
               isAuthenticated ? (
                 <Navigate to="/dashboard" />
@@ -43,7 +44,8 @@ function App() {
                 <div className="content">
                   <Routes>
                     <Route path="/dashboard" element={<SidebarMenu />} />
-                    <Route path="/register" element={<Signup />} />
+                    <Route path="/" element={<SidebarMenu />} />
+
                     <Route path="/orders" element={<Orders />} />
                     <Route path="/add-order" element={<AddOrder />} />
                     <Route path="/expenses" element={<Expenses />} />

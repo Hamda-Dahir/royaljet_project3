@@ -20,8 +20,8 @@ function Signup() {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center bg-secondary vh-100 vw-100">
-      <div className="bg-white p-3 rounded w-40">
+    <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
+      <div className="bg-white p-3 rounded w-25">
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -33,7 +33,7 @@ function Signup() {
               placeholder="Enter Name"
               autoComplete="off"
               name="email"
-              className="form-control rounded-0"
+              className="form-control rounded-0 w-100"
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -46,7 +46,7 @@ function Signup() {
               placeholder="Enter Email"
               autoComplete="off"
               name="email"
-              className="form-control rounded-0"
+              className="form-control rounded-0 w-100"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -58,7 +58,7 @@ function Signup() {
               type="password"
               placeholder="Enter Password"
               name="password"
-              className="form-control rounded-0"
+              className="form-control rounded-0 w-100"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
