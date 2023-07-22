@@ -87,14 +87,18 @@ const AddOrderForm = ({ onClose }) => {
       <Form.Group controlId="formCategory">
         <Form.Label>Category</Form.Label>
         <Form.Control
-          type="text"
+          as="select"
           name="category"
           className="form-control rounded-0 w-100"
           value={newOrderData.category}
           placeholder="Enter Category"
           onChange={handleInputChange}
           required
-        />
+        >
+          <option value="">Select Category</option>
+          <option value="indoor">Indoor</option>
+          <option value="outdoor">Outdoor</option>
+        </Form.Control>
       </Form.Group>
       <Form.Group controlId="formCategory">
         <Form.Label>Price</Form.Label>

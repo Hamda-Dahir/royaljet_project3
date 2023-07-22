@@ -37,6 +37,7 @@ const AddUserForm = ({ onClose }) => {
         <Form.Control
           type="text"
           name="name"
+          className="mt-2 form-control rounded-0 w-100"
           value={newUserData.name}
           placeholder="Enter name"
           onChange={handleInputChange}
@@ -49,6 +50,7 @@ const AddUserForm = ({ onClose }) => {
         <Form.Control
           type="email"
           name="email"
+          className="mt-2 form-control rounded-0 w-100"
           value={newUserData.email}
           placeholder="Enter email"
           onChange={handleInputChange}
@@ -61,6 +63,7 @@ const AddUserForm = ({ onClose }) => {
         <Form.Control
           type="text"
           name="password"
+          className="mt-2 form-control rounded-0 w-100"
           value={newUserData.password}
           placeholder="Enter password"
           onChange={handleInputChange}
@@ -72,6 +75,7 @@ const AddUserForm = ({ onClose }) => {
         <Form.Control
           as="select" // If using a dropdown select, use "as='select'"
           name="role"
+          className="mt-2 form-control rounded-0 w-100"
           value={newUserData.role}
           onChange={handleInputChange}
           required
@@ -82,7 +86,11 @@ const AddUserForm = ({ onClose }) => {
         </Form.Control>
       </Form.Group>
 
-      <Button variant="primary" onClick={handleAddUser}>
+      <Button
+        variant="primary"
+        onClick={handleAddUser}
+        className="mt-2 form-control rounded-10 w-100 mt-2"
+      >
         Add User
       </Button>
     </Form>

@@ -35,6 +35,7 @@ const UpdateUserForm = ({ user, onClose, onUpdate }) => {
         <Form.Control
           type="text"
           name="name"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedUserData.name}
           onChange={handleInputChange}
           required
@@ -46,6 +47,7 @@ const UpdateUserForm = ({ user, onClose, onUpdate }) => {
         <Form.Control
           type="email"
           name="email"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedUserData.email}
           onChange={handleInputChange}
           required
@@ -57,6 +59,7 @@ const UpdateUserForm = ({ user, onClose, onUpdate }) => {
         <Form.Control
           type="text"
           name="password"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedUserData.password}
           onChange={handleInputChange}
           required
@@ -68,6 +71,7 @@ const UpdateUserForm = ({ user, onClose, onUpdate }) => {
         <Form.Control
           as="select" // If using a dropdown select, use "as='select'"
           name="role"
+          className="mt-2 form-control rounded-0 w-100"
           value={updatedUserData.role}
           onChange={handleInputChange}
           required
@@ -78,7 +82,11 @@ const UpdateUserForm = ({ user, onClose, onUpdate }) => {
         </Form.Control>
       </Form.Group>
 
-      <Button variant="primary" onClick={handleUpdateUser}>
+      <Button
+        variant="primary"
+        onClick={handleUpdateUser}
+        className="mt-2 form-control rounded-10 w-100"
+      >
         Update User
       </Button>
     </Form>
