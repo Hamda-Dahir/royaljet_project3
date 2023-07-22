@@ -19,7 +19,7 @@ function Orders() {
   const [ordersPerPage] = useState(8);
   const [filterName, setFilterName] = useState('');
   const [newOrderData, setNewOrderData] = useState({
-    fullName: '',
+    fullname: '',
     phone: 0,
     date: '',
     details: '',
@@ -167,7 +167,7 @@ function Orders() {
               {currentOrders.map((order, index) => (
                 <tr key={order._id}>
                   <td>{(currentPage - 1) * ordersPerPage + index + 1}</td>
-                  <td>{order.fullName}</td>
+                  <td>{order.fullname}</td>
                   <td>{order.phone}</td>
                   <td>{order.date}</td>
                   <td>{order.details}</td>

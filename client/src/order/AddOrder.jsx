@@ -6,7 +6,7 @@ import { Form, Button } from 'react-bootstrap';
 const AddOrderForm = ({ onClose }) => {
   const navigate = useNavigate();
   const [newOrderData, setNewOrderData] = useState({
-    fullName: '',
+    fullname: '',
     phone: 0,
     date: '',
     details: '',
@@ -39,8 +39,8 @@ const AddOrderForm = ({ onClose }) => {
         <Form.Label>FullName</Form.Label>
         <Form.Control
           type="text"
-          name="fullName" // should be "description"
-          value={newOrderData.fullName}
+          name="fullname" // should be "description"
+          value={newOrderData.fullname}
           placeholder="Enter fullname"
           onChange={handleInputChange}
           required
