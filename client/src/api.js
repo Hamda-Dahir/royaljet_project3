@@ -2,6 +2,16 @@ import axios from 'axios';
 
 const BASE_URL = 'http://localhost:5000';
 
+// Authentication
+export const login = async (userData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/login`, userData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 // user section api starting
 
 export const getAllUsers = async () => {
