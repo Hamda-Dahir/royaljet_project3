@@ -41,6 +41,25 @@ function Employees() {
     }
   };
 
+  const handleShowUpdateModal = (employee) => {
+    setSelectedEmployee(employee);
+    setShowUpdateModal(true);
+  };
+
+  const handleCloseUpdateModal = () => {
+    setSelectedEmployee(null);
+    setShowUpdateModal(false);
+  };
+
+  const handleUpdateEmployee = (updatedEmployee) => {
+    // Update the state with the updated emp data
+    setEmployees((prevEmployees) =>
+      prevEmployees.map((employee) =>
+        employee._id === updatedEmployee._id ? updatedEmployee : employee
+      )
+    );
+  };
+
   return <div>Employees</div>;
 }
 
