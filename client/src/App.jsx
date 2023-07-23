@@ -18,6 +18,8 @@ import AddOrder from './order/AddOrder';
 import Stats from './stats/Stats';
 import Signup from './auth/Signup';
 import Login from './auth/Login';
+import Employees from './employee/Employees';
+import AddEmployee from './employee/AddEmployee';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -45,6 +47,8 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/dashboard" element={<SidebarMenu />} />
               {/* <Route path="/register" element={<Signup />} /> */}
+              <Route path="/employees" element={<Employees />}></Route>
+              <Route path="/add-employee" element={<AddEmployee />}></Route>
               <Route path="/orders" element={<Orders />}></Route>
               <Route path="/add-order" element={<AddOrder />}></Route>
               <Route path="/expenses" element={<Expenses />}></Route>

@@ -20,7 +20,7 @@ function SidebarMenu() {
             <ul class="nav nav-pills flex-column">
               <li class="nav-item text-white fs-4 ml-1 py-2 py-sm-0">
                 <a
-                  href="/"
+                  href="/stats"
                   class="nav-link text-white fs-5"
                   aria-current="page"
                 >
@@ -34,8 +34,18 @@ function SidebarMenu() {
                   class="nav-link text-white fs-5"
                   aria-current="page"
                 >
-                  <i className="bi bi-table"></i>
+                  <i className="bi bi-bag-heart-fill"></i>
                   <span className="ms-3 d-none d-sm-inline">Orders</span>
+                </a>
+              </li>
+              <li class="nav-item text-white fs-4 ml-1 py-2 py-sm-0">
+                <a
+                  href="/employees"
+                  class="nav-link text-white fs-5"
+                  aria-current="page"
+                >
+                  <i className="bi bi-people"></i>
+                  <span className="ms-3 d-none d-sm-inline">Employees</span>
                 </a>
               </li>
               <li class="nav-item text-white fs-4 ml-1 py-2 py-sm-0">
@@ -44,7 +54,7 @@ function SidebarMenu() {
                   class="nav-link text-white fs-5"
                   aria-current="page"
                 >
-                  <i className="bi bi-grid"></i>
+                  <i className="bi bi-cash-coin"></i>
                   <span className="ms-3 d-none d-sm-inline">Expenses</span>
                 </a>
               </li>
@@ -54,7 +64,7 @@ function SidebarMenu() {
                   class="nav-link text-white fs-5"
                   aria-current="page"
                 >
-                  <i className="bi bi-people"></i>
+                  <i className="bi bi-person-add"></i>
                   <span className="ms-3 d-none d-sm-inline">Users</span>
                 </a>
               </li>
