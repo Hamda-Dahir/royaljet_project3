@@ -7,8 +7,10 @@ import './orders.css';
 import { getAllOrders, createOrder, updateOrder, deleteOrder } from '../api';
 import AddOrderForm from './AddOrder';
 import UpdateOrderForm from './UpdateOrderForm';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import OrderInvoiceModal from './OrderInvoiceModal';
+
+const BASE_URL = 'http://localhost:5000';
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -42,20 +44,23 @@ function Orders() {
     }
   };
 
-  const [showInvoiceModal, setShowInvoiceModal] = useState(false);
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
 
-  const handleShowInvoiceModal = (order) => {
+  // Function to fetch a single order by its ID
+  const fetchSingleOrder = async (orderId) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/orders/${orderId}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching order details:', error);
+    }
+  };
+
+  // Function to handle showing the modal with selected order
+  const handleShowOrderInvoiceModal = async (orderId) => {
+    const order = await fetchSingleOrder(orderId);
     setSelectedOrder(order);
-    setShowInvoiceModal(true);
-  };
-
-  const handleCloseInvoiceModal = () => {
-    setShowInvoiceModal(false);
-  };
-
-  // Function to handle printing the order invoice
-  const handlePrintInvoice = () => {
-    window.print();
+    setSelectedOrderId(orderId);
   };
 
   const handleShowUpdateModal = (order) => {
@@ -106,7 +111,6 @@ function Orders() {
   };
 
   // filter by name
-
   const handleFilterChange = (event) => {
     setFilterName(event.target.value);
   };
@@ -133,7 +137,7 @@ function Orders() {
 
   return (
     <div className="container py-5">
-      {showReport ? ( // If showReport is true, show the printable report
+      {showReport ? (
         <OrderReport orders={orders} />
       ) : (
         <div className="bg-white rounded p-3">
@@ -150,9 +154,6 @@ function Orders() {
                   className="form-control me-2"
                 />
               </div>
-              {/* <Link to="/create" className="btn btn-success me-2">
-                  Add +
-                </Link> */}
               <Button
                 className="me-2"
                 variant="success"
@@ -163,13 +164,6 @@ function Orders() {
               <button className="btn btn-secondary me-2" onClick={toggleReport}>
                 <FaFileAlt className="me-2" />
                 Report
-              </button>
-              {/* "Print" button */}
-              <button
-                onClick={handlePrintInvoice}
-                className="btn btn-secondary"
-              >
-                Print Invoice
               </button>
             </div>
           </div>
@@ -199,12 +193,6 @@ function Orders() {
                   <td>{order.price}</td>
                   <td>{order.paymentType}</td>
                   <td>
-                    {/* <Link
-                        onClick={() => handleUpdateUser(user._id)}
-                        className="btn btn-success me-2"
-                      >
-                        Update
-                      </Link> */}
                     <Button
                       className="me-2"
                       variant="info"
@@ -214,13 +202,12 @@ function Orders() {
                     </Button>
                     <button
                       className="btn btn-primary"
-                      onClick={() => handleShowInvoiceModal(order)}
+                      onClick={() => handleShowOrderInvoiceModal(order._id)}
                     >
-                      View Invoice
+                      Print
                     </button>
                     <button
                       className="btn btn-danger "
-                      // onClick={() => handleDelete(user._id)}
                       onClick={() => handleDeleteOrder(order._id)}
                     >
                       Delete
@@ -253,17 +240,13 @@ function Orders() {
             </ul>
           </nav>
 
-          {/* Modal to display the order invoice */}
-          <Modal
-            show={showInvoiceModal}
-            onHide={handleCloseInvoiceModal}
-            centered
-          >
+          {/* Modal to display the OrderInvoice */}
+          {selectedOrderId && (
             <OrderInvoiceModal
               order={selectedOrder}
-              onClose={handleCloseInvoiceModal}
+              onClose={() => setSelectedOrderId(null)}
             />
-          </Modal>
+          )}
 
           {/* Modal to display the "Add Orders" form */}
           <Modal show={showAddOrderModal} onHide={handleCloseModal} centered>
@@ -279,7 +262,6 @@ function Orders() {
           </Modal>
 
           {/* edit modal */}
-
           <Modal
             show={showUpdateModal}
             onHide={handleCloseUpdateModal}
