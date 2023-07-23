@@ -15,6 +15,32 @@ import UpdateEmployeeForm from './UpdateEmployeeForm';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 function Employees() {
+  const [employees, setEmployees] = useState([]);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
+  const [showAddEmployeeModal, setShowAddEmployeeModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [employeesPerPage] = useState(8);
+  const [filterName, setFilterName] = useState('');
+  const [newEmployeeData, setNewEmployeeData] = useState({
+    name: '',
+    phone: 0,
+    position: '',
+  });
+
+  useEffect(() => {
+    fetchEmployees();
+  }, []);
+
+  const fetchEmployees = async () => {
+    try {
+      const data = await getAllEmployees();
+      setEmployees(data);
+    } catch (error) {
+      console.error('Error fetching employees:', error);
+    }
+  };
+
   return <div>Employees</div>;
 }
 
