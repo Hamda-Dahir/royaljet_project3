@@ -37,33 +37,37 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Update a expenses by ID
+// Update a employee by ID
 router.put('/:id', async (req, res) => {
   const id = req.params.id;
   try {
-    const updatedExpense = await ExpensesModel.findByIdAndUpdate(id, req.body, {
-      new: true,
-    });
-    if (!updatedExpense) {
-      return res.status(404).json({ message: 'Expense not found' });
+    const updatedEmployee = await EmployeeModel.findByIdAndUpdate(
+      id,
+      req.body,
+      {
+        new: true,
+      }
+    );
+    if (!updatedEmployee) {
+      return res.status(404).json({ message: 'Employee not found' });
     }
-    res.json(updatedExpense);
+    res.json(updatedEmployee);
   } catch (error) {
-    res.status(500).json({ message: 'Error updating Expense', error });
+    res.status(500).json({ message: 'Error updating Employee', error });
   }
 });
 
-// Delete a expenses by ID
+// Delete a employee by ID
 router.delete('/:id', async (req, res) => {
   const id = req.params.id;
   try {
-    const deletedExpense = await ExpensesModel.findByIdAndRemove(id);
-    if (!deletedExpense) {
-      return res.status(404).json({ message: 'Expense not found' });
+    const deletedEmployee = await EmployeeModel.findByIdAndRemove(id);
+    if (!deletedEmployee) {
+      return res.status(404).json({ message: 'Employee not found' });
     }
-    res.json(deletedExpense);
+    res.json(deletedEmployee);
   } catch (error) {
-    res.status(500).json({ message: 'Error deleting Expense', error });
+    res.status(500).json({ message: 'Error deleting Employee', error });
   }
 });
 
