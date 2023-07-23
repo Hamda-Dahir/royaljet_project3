@@ -7,7 +7,7 @@ const OrderInvoiceModal = ({ order, onClose }) => {
       printWindow.document.write(`
         <html>
           <head>
-            <title>Order Invoice</title>
+            <title>Order Invoice Royal Jet</title>
             <style>
               /* Custom styles for the printable invoice */
               /* Add your styles here, for example: */
