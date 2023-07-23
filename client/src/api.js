@@ -147,3 +147,49 @@ export const deleteOrder = async (orderId) => {
 };
 
 /* ending orders api */
+
+// employee api starting
+export const getAllEmployees = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/employees`, {
+      params: {
+        cache_buster: Date.now(),
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const createEmployee = async (employeeData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/employees`, employeeData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const updateEmployee = async (employeeId, employeeData) => {
+  try {
+    const response = await axios.put(
+      `${BASE_URL}/employees/${employeeId}`,
+      employeeData
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const deleteEmployee = async (employeeId) => {
+  try {
+    const response = await axios.delete(`${BASE_URL}/employees/${employeeId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// employee api ending
