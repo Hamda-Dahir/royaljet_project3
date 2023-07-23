@@ -23,17 +23,17 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get a single expenses by ID
+// Get a single employees by ID
 router.get('/:id', async (req, res) => {
   const id = req.params.id;
   try {
-    const expense = await ExpensesModel.findById(id);
-    if (!expense) {
-      return res.status(404).json({ message: 'Expense not found' });
+    const employee = await EmployeeModel.findById(id);
+    if (!employee) {
+      return res.status(404).json({ message: 'Employee not found' });
     }
-    res.json(expense);
+    res.json(employee);
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching expense', error });
+    res.status(500).json({ message: 'Error fetching employee', error });
   }
 });
 
