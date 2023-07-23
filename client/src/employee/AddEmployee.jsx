@@ -29,7 +29,56 @@ function AddEmployee({ onClose }) {
     }
   };
 
-  return <div>AddEmployee</div>;
+  return (
+    <Form>
+      <Form.Group controlId="formName">
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          type="text"
+          name="name"
+          className="mt-2 form-control rounded-0 w-100"
+          value={newEmployeeData.name}
+          placeholder="Enter name"
+          onChange={handleInputChange}
+          required
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formPhone">
+        <Form.Label>Phone</Form.Label>
+        <Form.Control
+          type="number"
+          name="phone"
+          className="mt-2 form-control rounded-0 w-100"
+          value={newEmployeeData.phone}
+          placeholder="Enter phone number"
+          onChange={handleInputChange}
+          required
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formPosi">
+        <Form.Label>Position</Form.Label>
+        <Form.Control
+          type="text"
+          name="position"
+          className="mt-2 form-control rounded-0 w-100"
+          value={newEmployeeData.position}
+          placeholder="Enter employee title"
+          onChange={handleInputChange}
+          required
+        />
+      </Form.Group>
+
+      <Button
+        variant="primary"
+        onClick={handleAddEmployee}
+        className="mt-2 form-control rounded-10 w-100 mt-2"
+      >
+        Add Employee
+      </Button>
+    </Form>
+  );
 }
 
 export default AddEmployee;
