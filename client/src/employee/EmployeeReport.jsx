@@ -1,7 +1,33 @@
+// EmployeeReport.js
 import React from 'react';
+import './employees.css';
 
-function EmployeeReport() {
-  return <div>EmployeeReport</div>;
-}
+const EmployeeReport = ({ employees }) => {
+  return (
+    <div className="employee-report">
+      <h2>Employee Report</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Position</th>
+          </tr>
+        </thead>
+        <tbody>
+          {employees.map((employee) => (
+            <tr key={employee._id}>
+              <td>{employee._id}</td>
+              <td>{employee.name}</td>
+              <td>{employee.phone}</td>
+              <td>{employee.position}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export default EmployeeReport;

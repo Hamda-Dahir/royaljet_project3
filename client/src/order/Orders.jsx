@@ -8,6 +8,7 @@ import { getAllOrders, createOrder, updateOrder, deleteOrder } from '../api';
 import AddOrderForm from './AddOrder';
 import UpdateOrderForm from './UpdateOrderForm';
 import { Modal, Button, Form } from 'react-bootstrap';
+import OrderInvoiceModal from './OrderInvoiceModal';
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -39,6 +40,22 @@ function Orders() {
     } catch (error) {
       console.error('Error fetching orders:', error);
     }
+  };
+
+  const [showInvoiceModal, setShowInvoiceModal] = useState(false);
+
+  const handleShowInvoiceModal = (order) => {
+    setSelectedOrder(order);
+    setShowInvoiceModal(true);
+  };
+
+  const handleCloseInvoiceModal = () => {
+    setShowInvoiceModal(false);
+  };
+
+  // Function to handle printing the order invoice
+  const handlePrintInvoice = () => {
+    window.print();
   };
 
   const handleShowUpdateModal = (order) => {
@@ -147,6 +164,13 @@ function Orders() {
                 <FaFileAlt className="me-2" />
                 Report
               </button>
+              {/* "Print" button */}
+              <button
+                onClick={handlePrintInvoice}
+                className="btn btn-secondary"
+              >
+                Print Invoice
+              </button>
             </div>
           </div>
           <table className="table table-striped">
@@ -189,6 +213,12 @@ function Orders() {
                       Edit
                     </Button>
                     <button
+                      className="btn btn-primary"
+                      onClick={() => handleShowInvoiceModal(order)}
+                    >
+                      View Invoice
+                    </button>
+                    <button
                       className="btn btn-danger "
                       // onClick={() => handleDelete(user._id)}
                       onClick={() => handleDeleteOrder(order._id)}
@@ -200,6 +230,7 @@ function Orders() {
               ))}
             </tbody>
           </table>
+
           <nav className="d-flex justify-content-center">
             <ul className="pagination">
               {Array.from({
@@ -221,6 +252,19 @@ function Orders() {
               ))}
             </ul>
           </nav>
+
+          {/* Modal to display the order invoice */}
+          <Modal
+            show={showInvoiceModal}
+            onHide={handleCloseInvoiceModal}
+            centered
+          >
+            <OrderInvoiceModal
+              order={selectedOrder}
+              onClose={handleCloseInvoiceModal}
+            />
+          </Modal>
+
           {/* Modal to display the "Add Orders" form */}
           <Modal show={showAddOrderModal} onHide={handleCloseModal} centered>
             <Modal.Header closeButton>

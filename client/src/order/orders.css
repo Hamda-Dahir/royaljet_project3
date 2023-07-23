@@ -80,3 +80,26 @@
   background-color: #000045;
   border-color: #000045;
 }
+
+/* orders.css */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .order-invoice {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 2cm;
+  }
+
+  /* Additional print styles for the order invoice */
+  .order-invoice p {
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  /* Add more print-specific styles as needed */
+}

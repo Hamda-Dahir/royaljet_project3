@@ -80,3 +80,37 @@
   background-color: #0056b3;
   border-color: #0056b3;
 }
+
+/* employees.css */
+@media print {
+  /* Hide any unnecessary elements that you don't want to print */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Display the employee report section when printing */
+  .employee-report {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 2cm;
+  }
+
+  /* Style the table for printing */
+  .employee-report table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .employee-report th,
+  .employee-report td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .employee-report th {
+    background-color: #f2f2f2;
+  }
+}
