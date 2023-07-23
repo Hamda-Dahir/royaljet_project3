@@ -82,7 +82,7 @@ function Employees() {
     try {
       await deleteEmployee(employeeId);
       setEmployees((prevEmployees) =>
-        prevEmployees.filter((employee) => employee._id !== userId)
+        prevEmployees.filter((employee) => employee._id !== employeeId)
       );
     } catch (error) {
       console.error('Error deleting employee:', error);
