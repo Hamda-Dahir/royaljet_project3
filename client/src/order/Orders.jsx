@@ -7,7 +7,10 @@ import './orders.css';
 import { getAllOrders, createOrder, updateOrder, deleteOrder } from '../api';
 import AddOrderForm from './AddOrder';
 import UpdateOrderForm from './UpdateOrderForm';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
+import OrderInvoiceModal from './OrderInvoiceModal';
+
+const BASE_URL = 'http://localhost:5000';
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -39,6 +42,25 @@ function Orders() {
     } catch (error) {
       console.error('Error fetching orders:', error);
     }
+  };
+
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
+
+  // Function to fetch a single order by its ID
+  const fetchSingleOrder = async (orderId) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/orders/${orderId}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching order details:', error);
+    }
+  };
+
+  // Function to handle showing the modal with selected order
+  const handleShowOrderInvoiceModal = async (orderId) => {
+    const order = await fetchSingleOrder(orderId);
+    setSelectedOrder(order);
+    setSelectedOrderId(orderId);
   };
 
   const handleShowUpdateModal = (order) => {
@@ -89,7 +111,6 @@ function Orders() {
   };
 
   // filter by name
-
   const handleFilterChange = (event) => {
     setFilterName(event.target.value);
   };
@@ -116,7 +137,7 @@ function Orders() {
 
   return (
     <div className="container py-5">
-      {showReport ? ( // If showReport is true, show the printable report
+      {showReport ? (
         <OrderReport orders={orders} />
       ) : (
         <div className="bg-white rounded p-3">
@@ -133,9 +154,6 @@ function Orders() {
                   className="form-control me-2"
                 />
               </div>
-              {/* <Link to="/create" className="btn btn-success me-2">
-                  Add +
-                </Link> */}
               <Button
                 className="me-2"
                 variant="success"
@@ -175,12 +193,6 @@ function Orders() {
                   <td>{order.price}</td>
                   <td>{order.paymentType}</td>
                   <td>
-                    {/* <Link
-                        onClick={() => handleUpdateUser(user._id)}
-                        className="btn btn-success me-2"
-                      >
-                        Update
-                      </Link> */}
                     <Button
                       className="me-2"
                       variant="info"
@@ -189,8 +201,13 @@ function Orders() {
                       Edit
                     </Button>
                     <button
+                      className="btn btn-primary me-2"
+                      onClick={() => handleShowOrderInvoiceModal(order._id)}
+                    >
+                      Print
+                    </button>
+                    <button
                       className="btn btn-danger "
-                      // onClick={() => handleDelete(user._id)}
                       onClick={() => handleDeleteOrder(order._id)}
                     >
                       Delete
@@ -200,6 +217,7 @@ function Orders() {
               ))}
             </tbody>
           </table>
+
           <nav className="d-flex justify-content-center">
             <ul className="pagination">
               {Array.from({
@@ -221,6 +239,15 @@ function Orders() {
               ))}
             </ul>
           </nav>
+
+          {/* Modal to display the OrderInvoice */}
+          {selectedOrderId && (
+            <OrderInvoiceModal
+              order={selectedOrder}
+              onClose={() => setSelectedOrderId(null)}
+            />
+          )}
+
           {/* Modal to display the "Add Orders" form */}
           <Modal show={showAddOrderModal} onHide={handleCloseModal} centered>
             <Modal.Header closeButton>
@@ -235,7 +262,6 @@ function Orders() {
           </Modal>
 
           {/* edit modal */}
-
           <Modal
             show={showUpdateModal}
             onHide={handleCloseUpdateModal}

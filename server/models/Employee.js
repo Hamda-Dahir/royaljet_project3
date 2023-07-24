@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const EmployeeSchema = new mongoose.Schema({
-  fullName: String,
+  name: String,
   phone: Number,
   position: String,
 });

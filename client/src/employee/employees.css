@@ -34,12 +34,12 @@
 }
 
 .btn-primary {
-  background-color: #000045;
+  background-color: #007bff;
   color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: #000045;
+  background-color: #0056b3;
 }
 
 .btn-secondary {
@@ -67,27 +67,29 @@
 }
 
 .pagination .page-item .page-link {
-  color: #000045;
+  color: #007bff;
 }
 
 .pagination .page-item.active .page-link {
-  background-color: #000045;
-  border-color: #000045;
+  background-color: #007bff;
+  border-color: #007bff;
   color: white;
 }
 
 .pagination .page-item.active .page-link:hover {
-  background-color: #000045;
-  border-color: #000045;
+  background-color: #0056b3;
+  border-color: #0056b3;
 }
 
-/* orders.css */
+/* employees.css */
 @media print {
+  /* Hide any unnecessary elements that you don't want to print */
   body * {
     visibility: hidden;
   }
 
-  .order-invoice {
+  /* Display the employee report section when printing */
+  .employee-report {
     visibility: visible;
     position: absolute;
     left: 0;
@@ -95,11 +97,20 @@
     margin: 2cm;
   }
 
-  /* Additional print styles for the order invoice */
-  .order-invoice p {
-    margin: 0;
-    padding: 0.5rem 0;
+  /* Style the table for printing */
+  .employee-report table {
+    border-collapse: collapse;
+    width: 100%;
   }
 
-  /* Add more print-specific styles as needed */
+  .employee-report th,
+  .employee-report td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .employee-report th {
+    background-color: #f2f2f2;
+  }
 }
