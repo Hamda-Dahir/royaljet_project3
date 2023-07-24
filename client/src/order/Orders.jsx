@@ -201,7 +201,7 @@ function Orders() {
                       Edit
                     </Button>
                     <button
-                      className="btn btn-primary"
+                      className="btn btn-primary me-2"
                       onClick={() => handleShowOrderInvoiceModal(order._id)}
                     >
                       Print
