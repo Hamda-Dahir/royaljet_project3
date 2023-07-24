@@ -22,10 +22,15 @@ const Header = ({ userName }) => {
         alignItems: 'center',
       }}
     >
-      <div>
+      <div
+        style={{
+          marginLeft: '500px',
+        }}
+      >
         <h3 style={{ margin: 0 }}>Royal Jet Management System</h3>
         <p style={{ margin: '3px 0' }}>Welcome, {userName}</p>
       </div>
+
       <button
         style={{
           backgroundColor: '#555',
