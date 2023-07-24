@@ -11,11 +11,19 @@ const usersRoutes = require('./routes/users.js');
 const expensesRoutes = require('./routes/expenses.js');
 const ordersRoutes = require('./routes/order.js');
 const employeeRoutes = require('./routes/employee.js');
+const loginRoutes = require('./routes/login.js');
 
 const app = express();
 dotenv.config();
 
-app.use(cors());
+// app.use(cors());
+// Allow requests from 'http://localhost:5173'
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -48,6 +56,7 @@ app.use('/users', usersRoutes);
 app.use('/expenses', expensesRoutes);
 app.use('/orders', ordersRoutes);
 app.use('/employees', employeeRoutes);
+app.use('/login', loginRoutes);
 
 app.listen(process.env.PORT, () => {
   connectDB();

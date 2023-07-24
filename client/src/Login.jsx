@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { getAllUsers, login } from './api';
 
 function Login() {
   const [email, setEmail] = useState();
@@ -9,22 +10,36 @@ function Login() {
   const navigate = useNavigate();
 
   axios.defaults.withCredentials = true;
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    // handleLogin();
     axios
       .post('http://localhost:5000/login', { email, password })
       .then((res) => {
         console.log('login: ' + res.data);
-        if (res.data.Status === 'Success') {
-          if (res.data.role === 'admin') {
-            navigate('/dashboard');
-          } else {
-            navigate('/');
-          }
+        if (res.data === 'Success') {
+          navigate('/');
+          // if (res.data.role === 'admin') {
+          //   navigate('/');
         }
       })
       .catch((err) => console.log(err));
   };
+
+  // const handleLogin = async () => {
+  //   try {
+  //     const data = await login({ email, password });
+
+  //     if (data) {
+  //       navigate('/');
+  //     } else {
+  //       navigate('/');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching users:', error);
+  //   }
+  // };
 
   return (
     <div className="d-flex justify-content-center align-items-center bg-secondary vh-100 vw-100">
@@ -40,6 +55,7 @@ function Login() {
               placeholder="Enter Email"
               autoComplete="off"
               name="email"
+              // value={'jama@gmail.com'}
               className="form-control rounded-0 w-100"
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -52,6 +68,7 @@ function Login() {
               type="password"
               placeholder="Enter Password"
               name="password"
+              // value={'1234'}
               className="form-control rounded-0 w-100"
               onChange={(e) => setPassword(e.target.value)}
             />
