@@ -28,12 +28,6 @@ function App() {
   return (
     <div className="app-container">
       <BrowserRouter>
-        <div className="">
-          {/* <Signup /> */}
-          {/* <Routes>
-            <Route path="/login" element={<Login />} />
-          </Routes> */}
-        </div>
         <Header userName={userName} />
         <div className="middle-section">
           <div className="sidebar">
@@ -42,6 +36,7 @@ function App() {
           <div className="content">
             <Routes>
               {/* <Route path="/Signup" element={<Signup />} /> */}
+              <Route path="/" element={<Stats />} />
               <Route path="/stats" element={<Stats />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
