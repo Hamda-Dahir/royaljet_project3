@@ -1,12 +1,13 @@
-// Header.js
-import { left } from '@popperjs/core';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ userName }) => {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    // Implement your logout logic here
-    // For example, clearing the user session or state
-    console.log('Logged out');
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('userName');
+    navigate('/login');
   };
 
   return (
@@ -21,11 +22,7 @@ const Header = ({ userName }) => {
         alignItems: 'center',
       }}
     >
-      <div
-        style={{
-          marginLeft: '500px',
-        }}
-      >
+      <div>
         <h3 style={{ margin: 0 }}>Royal Jet Management System</h3>
         <p style={{ margin: '3px 0' }}>Welcome, {userName}</p>
       </div>

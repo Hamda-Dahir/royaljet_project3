@@ -16,14 +16,14 @@ function Login() {
       .then((result) => {
         console.log(result);
         if (result.data === 'Success') {
-          navigate('/stats');
+          navigate('/');
         }
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
+    <div className="d-flex justify-content-center align-items-center bg-secondary vh-100 vw-100">
       <div className="bg-white p-3 rounded w-80">
         <h5>Login</h5>
         <form onSubmit={handleSubmit}>
