@@ -64,6 +64,9 @@ function App() {
         <Route path="/" element={<DashboardLayout />}>
           <Route index element={<Stats />} />
           <Route path="/users" element={<Users />}></Route>
+          <Route path="/expenses" element={<Expenses />}></Route>
+          <Route path="/employees" element={<Employees />}></Route>
+          <Route path="/orders" element={<Orders />}></Route>
           {/* <Route path="/page1" component={Page1} />
           <Route path="/page2" component={Page2} />
           <Route path="/page3" component={Page3} /> */}

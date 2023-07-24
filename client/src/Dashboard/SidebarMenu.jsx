@@ -20,7 +20,7 @@ function SidebarMenu() {
             <ul class="nav nav-pills flex-column">
               <li class="nav-item text-white fs-4 ml-1 py-2 py-sm-0">
                 <a
-                  href="/stats"
+                  href="/"
                   class="nav-link text-white fs-5"
                   aria-current="page"
                 >
