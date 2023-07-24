@@ -79,7 +79,7 @@ function Login() {
         </form>
         <p>Already Have an Account</p>
         <Link
-          to="/register"
+          to="/signup"
           className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"
         >
           Sign Up
