@@ -122,7 +122,7 @@ function Orders() {
   };
 
   const filteredOrders = orders.filter((order) =>
-    order.details.toLowerCase().includes(filterName.toLowerCase())
+    order.fullname.toLowerCase().includes(filterName.toLowerCase())
   );
 
   // State to handle showing the printable report
@@ -196,7 +196,7 @@ function Orders() {
                   <td>{formatDate(order.date)}</td>
                   <td>{order.details}</td>
                   <td>{order.category}</td>
-                  <td>{order.price}</td>
+                  <td>$ {order.price}</td>
                   <td>{order.paymentType}</td>
                   <td>
                     <Button
