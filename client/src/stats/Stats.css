@@ -27,11 +27,12 @@
 }
 
 .orders-card {
-  background-color: #17a2b8;
+  background-color: #01cbda;
+  color: black;
 }
 
 .expenses-card {
-  background-color: #28a745;
+  background-color: #2acc02;
 }
 .employees-card {
   background-color: #000b45;
