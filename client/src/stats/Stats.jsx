@@ -3,19 +3,22 @@ import { Card } from 'react-bootstrap';
 import { FaUsers, FaShoppingCart, FaDollarSign } from 'react-icons/fa';
 import './Stats.css';
 
-import { getAllUsers, getAllOrders } from '../api';
+import { getAllUsers, getAllOrders, getAllExpenses } from '../api';
 
 const Stats = () => {
   const [usersCount, setUsersCount] = useState(0);
   const [ordersCount, setOrdersCount] = useState(0);
+  const [expensesCount, setExpensesCount] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const users = await getAllUsers();
         const orders = await getAllOrders();
+        const expenses = await getAllExpenses();
         setUsersCount(users.length);
         setOrdersCount(orders.length);
+        setExpensesCount(expenses.length);
       } catch (error) {
         // handle error
       }
@@ -44,7 +47,7 @@ const Stats = () => {
         <Card.Body>
           <FaDollarSign className="icon" />
           <Card.Title>Expenses</Card.Title>
-          <h3>$2000</h3>
+          <h3>{expensesCount}</h3>
         </Card.Body>
       </Card>
     </div>
