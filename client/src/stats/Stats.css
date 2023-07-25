@@ -1,6 +1,6 @@
 /* StatsCards.css */
 .card-container {
-  margin-top: 20px;
+  margin-top: -250px;
 }
 
 .custom-card {
@@ -10,6 +10,7 @@
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  hov
 }
 
 .custom-card h3 {
