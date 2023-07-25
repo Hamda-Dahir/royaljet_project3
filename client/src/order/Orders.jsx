@@ -122,7 +122,7 @@ function Orders() {
   };
 
   const filteredOrders = orders.filter((order) =>
-    order.details.toLowerCase().includes(filterName.toLowerCase())
+    order.fullname.toLowerCase().includes(filterName.toLowerCase())
   );
 
   // State to handle showing the printable report
