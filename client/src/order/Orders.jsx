@@ -196,7 +196,7 @@ function Orders() {
                   <td>{formatDate(order.date)}</td>
                   <td>{order.details}</td>
                   <td>{order.category}</td>
-                  <td>{order.price}</td>
+                  <td>$ {order.price}</td>
                   <td>{order.paymentType}</td>
                   <td>
                     <Button
