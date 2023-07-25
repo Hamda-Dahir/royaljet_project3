@@ -33,6 +33,10 @@
 .expenses-card {
   background-color: #28a745;
 }
+.employees-card {
+  background-color: #000b45;
+  color: white;
+}
 
 @media (max-width: 576px) {
   .custom-card {
