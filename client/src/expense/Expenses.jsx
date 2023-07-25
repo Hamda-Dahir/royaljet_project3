@@ -43,6 +43,12 @@ function Expenses() {
     }
   };
 
+  // utility function to format a date string
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   const handleShowUpdateModal = (expense) => {
     setSelectedExpense(expense);
     setShowUpdateModal(true);
@@ -169,7 +175,7 @@ function Expenses() {
                   <td>{(currentPage - 1) * expensesPerPage + index + 1}</td>
                   <td>{expense.description}</td>
                   <td>{expense.amount}</td>
-                  <td>{expense.date}</td>
+                  <td>{formatDate(expense.date)}</td>
                   <td>{expense.category}</td>
                   <td>
                     {/* <Link

@@ -1,6 +1,6 @@
 /* StatsCards.css */
 .card-container {
-  margin-top: 20px;
+  margin-top: -250px;
 }
 
 .custom-card {
@@ -10,6 +10,7 @@
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  hov
 }
 
 .custom-card h3 {
@@ -27,11 +28,16 @@
 }
 
 .orders-card {
-  background-color: #17a2b8;
+  background-color: #01cbda;
+  color: black;
 }
 
 .expenses-card {
-  background-color: #28a745;
+  background-color: #2acc02;
+}
+.employees-card {
+  background-color: #000b45;
+  color: white;
 }
 
 @media (max-width: 576px) {
