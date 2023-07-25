@@ -46,6 +46,12 @@ function Orders() {
 
   const [selectedOrderId, setSelectedOrderId] = useState(null);
 
+  // utility function to format a date string
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   // Function to fetch a single order by its ID
   const fetchSingleOrder = async (orderId) => {
     try {
@@ -187,7 +193,7 @@ function Orders() {
                   <td>{(currentPage - 1) * ordersPerPage + index + 1}</td>
                   <td>{order.fullname}</td>
                   <td>{order.phone}</td>
-                  <td>{order.date}</td>
+                  <td>{formatDate(order.date)}</td>
                   <td>{order.details}</td>
                   <td>{order.category}</td>
                   <td>{order.price}</td>
