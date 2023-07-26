@@ -8,3 +8,4 @@ const AuthSchema = new mongoose.Schema({
 
 const AuthModel = mongoose.model('auth', AuthSchema);
 module.exports = AuthModel;
+
