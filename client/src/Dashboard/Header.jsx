@@ -28,7 +28,7 @@ const Header = ({ userName }) => {
         }}
       >
         <h3 style={{ margin: 0 }}>Royal Jet Management System</h3>
-        <p style={{ margin: '3px 0' }}>Welcome, {userName}</p>
+        {/* <p style={{ margin: '3px 0' }}>Welcome, {userName}</p> */}
       </div>
 
       <button

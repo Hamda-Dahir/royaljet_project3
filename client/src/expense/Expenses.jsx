@@ -174,7 +174,7 @@ function Expenses() {
                 <tr key={expense._id}>
                   <td>{(currentPage - 1) * expensesPerPage + index + 1}</td>
                   <td>{expense.description}</td>
-                  <td>{expense.amount}</td>
+                  <td>$ {expense.amount}</td>
                   <td>{formatDate(expense.date)}</td>
                   <td>{expense.category}</td>
                   <td>

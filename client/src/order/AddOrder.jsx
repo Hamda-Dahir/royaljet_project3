@@ -115,14 +115,20 @@ const AddOrderForm = ({ onClose }) => {
       <Form.Group controlId="formCategory">
         <Form.Label>Payment Type</Form.Label>
         <Form.Control
-          type="text"
+          as="select"
           name="paymentType"
           className="form-control rounded-0 w-100"
           value={newOrderData.paymentType}
           placeholder="Enter payment type"
           onChange={handleInputChange}
           required
-        />
+        >
+
+        <option value="">Select paymentType</option>
+        <option value="">Zaad</option>
+        <option value="">Edahab</option>
+        <option value="">Cash</option>
+        </Form.Control>
       </Form.Group>
 
       <Button
