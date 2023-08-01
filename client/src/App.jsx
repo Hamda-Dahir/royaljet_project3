@@ -23,6 +23,7 @@ import Signup from './auth/Signup';
 import Employees from './employee/Employees';
 import AddEmployee from './employee/AddEmployee';
 import DashboardLayout from './components/layouts/DashboardLayout';
+import Home from './pages/Home/Home';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -64,6 +65,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/" element={<DashboardLayout />}>
           <Route index element={<Stats />} />
           <Route path="/users" element={<Users />}></Route>
