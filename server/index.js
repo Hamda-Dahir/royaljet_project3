@@ -12,6 +12,7 @@ const expensesRoutes = require('./routes/expenses.js');
 const ordersRoutes = require('./routes/order.js');
 const employeeRoutes = require('./routes/employee.js');
 const loginRoutes = require('./routes/login.js');
+const customerRoutes = require('./routes/customer.js');
 
 const app = express();
 dotenv.config();
@@ -57,6 +58,7 @@ app.use('/expenses', expensesRoutes);
 app.use('/orders', ordersRoutes);
 app.use('/employees', employeeRoutes);
 app.use('/login', loginRoutes);
+app.use('/customers',customerRoutes);
 
 app.listen(process.env.PORT, () => {
   connectDB();

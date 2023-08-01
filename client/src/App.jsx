@@ -13,6 +13,8 @@ import Expenses from './expense/Expenses';
 import AddExpense from './expense/AddExpense';
 import Orders from './order/Orders';
 import AddOrder from './order/AddOrder';
+import Customers from './customer/Customers';
+import AddCustomer from './customer/AddCustomer';
 // import Signup from './Signup';
 import Login from './Login';
 import Stats from './stats/Stats';
@@ -68,6 +70,7 @@ function App() {
           <Route path="/expenses" element={<Expenses />}></Route>
           <Route path="/employees" element={<Employees />}></Route>
           <Route path="/orders" element={<Orders />}></Route>
+          <Route path="/customers" element={<Customers />}></Route>
           {/* <Route path="/page1" component={Page1} />
           <Route path="/page2" component={Page2} />
           <Route path="/page3" component={Page3} /> */}

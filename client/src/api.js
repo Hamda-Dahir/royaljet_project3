@@ -164,6 +164,7 @@ export const deleteOrder = async (orderId) => {
   }
 };
 
+
 /* ending orders api */
 
 // employee api starting
@@ -211,3 +212,52 @@ export const deleteEmployee = async (employeeId) => {
 };
 
 // employee api ending
+
+// starting api customers
+export const getAllCustomers = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/customers`, {
+      params: {
+        cache_buster: Date.now(),
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const createCustomer = async (customerData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/customers`, customerData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+export const updateCustomer = async (customerId, customerData) => {
+  try {
+    const response = await axios.put(
+      `${BASE_URL}/customers/${customerId}`,
+      customerData
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const deleteCustomer = async (customerId) => {
+  try {
+    const response = await axios.delete(`${BASE_URL}/customers/${customerId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// ending api customers
+
+  

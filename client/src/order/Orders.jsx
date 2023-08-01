@@ -74,6 +74,7 @@ function Orders() {
     setShowUpdateModal(true);
   };
 
+
   const handleCloseUpdateModal = () => {
     setSelectedOrder(null);
     setShowUpdateModal(false);
@@ -94,6 +95,17 @@ function Orders() {
   const handleCloseModal = () => {
     setShowAddOrderModal(false); // Close the modal
   };
+
+
+
+
+
+
+
+
+
+
+
 
   const handleAddOrder = async (orderData) => {
     try {
