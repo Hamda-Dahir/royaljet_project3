@@ -488,7 +488,7 @@ progress {
 
 .lead {
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .display-1 {
@@ -695,12 +695,12 @@ progress {
 
 .row-cols-1 > * {
   flex: 0 0 auto;
-  width: 100%;
+  width: 500%;
 }
 
 .row-cols-2 > * {
   flex: 0 0 auto;
-  width: 50%;
+  width: 500%;
 }
 
 .row-cols-3 > * {
@@ -756,6 +756,27 @@ progress {
 .col-6 {
   flex: 0 0 auto;
   width: 50%;
+}
+
+.footer{
+  font-size: 22px;
+}
+.logoo{
+  width: 70px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+.hero{
+  background-image: url(./images/lo.jpg);
+  background-repeat: no-repeat;
+  /* background-size: 100% 700px; */
+  background-size: 100% 30rem;
+}
+
+.image{
+  width: 300px;
+  border-radius: 10px;
+  
 }
 
 .col-7 {
@@ -10831,4 +10852,52 @@ textarea.form-control-lg {
   height: 4rem;
   width: 4rem;
   font-size: 2rem;
+}
+
+
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }

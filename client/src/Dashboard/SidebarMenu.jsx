@@ -68,7 +68,7 @@ function SidebarMenu() {
                   <span className="ms-3 d-none d-sm-inline">Expenses</span>
                 </a>
               </li>
-              <li class="nav-item text-white fs-4 ml-1 py-2 py-sm-0">
+              {/* <li class="nav-item text-white fs-4 ml-1 py-2 py-sm-0">
                 <a
                   href="/users"
                   class="nav-link text-white fs-5"
@@ -78,7 +78,7 @@ function SidebarMenu() {
                   <span className="ms-3 d-none d-sm-inline">Users</span>
 
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
