@@ -64,11 +64,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        {/* <Route path="/signup" element={<Signup />} /> */}
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<DashboardLayout />}>
           <Route index element={<Stats />} />
-          <Route path="/users" element={<Users />}></Route>
+          {/* <Route path="/users" element={<Users />}></Route> */}
           <Route path="/expenses" element={<Expenses />}></Route>
           <Route path="/employees" element={<Employees />}></Route>
           <Route path="/orders" element={<Orders />}></Route>

@@ -24,7 +24,7 @@ const AuthRoutes = () => {
     <Routes>
       <Route path="/" element={<Login onLogin={handleLogin} />} />
       <Route path="/login" element={<Login onLogin={handleLogin} />} />
-      <Route path="/signup" element={<Signup />} />
+      {/* <Route path="/signup" element={<Signup />} /> */}
       <Route path="/home" element={<SidebarMenu />} />
     </Routes>
   );
