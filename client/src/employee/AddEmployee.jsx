@@ -9,6 +9,7 @@ function AddEmployee({ onClose }) {
     name: '',
     phone: 0,
     position: '',
+    salary:'',
   });
 
   const handleInputChange = (event) => {
@@ -64,6 +65,18 @@ function AddEmployee({ onClose }) {
           name="position"
           className="mt-2 form-control rounded-0 w-100"
           value={newEmployeeData.position}
+          placeholder="Enter employee title"
+          onChange={handleInputChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group controlId="formPosi">
+        <Form.Label>salary</Form.Label>
+        <Form.Control
+          type="number"
+          name="salary"
+          className="mt-2 form-control rounded-0 w-100"
+          value={newEmployeeData.salary}
           placeholder="Enter employee title"
           onChange={handleInputChange}
           required

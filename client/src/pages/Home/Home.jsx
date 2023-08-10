@@ -6,6 +6,10 @@ import './home.css';
 import image4 from './images/image4.jpg';
 import image2 from './images/image2.jpg';
 import image3 from './images/image3.jpg';
+import image7 from './images/image7.webp';
+import image6 from './images/image6.jpg';
+import image8 from './images/image8.webp';
+import image9 from './images/image9.webp';
 import logo from './images/image1.jpg';
 
 
@@ -95,7 +99,8 @@ const Home = () => {
         </Button> */}
 
 
-    
+
+        
         
                             
                         </div>
@@ -124,6 +129,9 @@ const Home = () => {
 
         
     </section>
+
+    
+   
     
     
     <section className="py-5 border-bottom" id="services">
@@ -142,7 +150,7 @@ const Home = () => {
                     <h2 className="h4 fw-bolder">Featured title</h2>
                     <p>Paragraph of text beneath the heading to explain the heading. We will add onto it with another sentence and probably just keep going until we run out of words.</p>
                     <a className="text-decoration-none" href="#!">
-                        Call to action
+                       
                         <i className="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -152,7 +160,7 @@ const Home = () => {
                     <h2 className="h4 fw-bolder">Featured title</h2>
                     <p>We are your regional solutions provider. Royaljet expertise is in understanding our customers’ needs – from concept to execution. Combined with our breadth of products and services, we are equipped to handle your multi-channel strategic execution..</p>
                     <a className="text-decoration-none" href="#!">
-                        Call to action
+                      
                         <i className="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -216,7 +224,7 @@ const Home = () => {
     <div className="responsive">
   <div className="gallery">
     <a target="_blank" href="img_5terre.jpg">
-      <img src={image2} alt="Cinque Terre" />
+      <img src={image8} alt="Cinque Terre" />
     </a>
   </div>
 </div>
@@ -224,7 +232,7 @@ const Home = () => {
 <div className="responsive">
   <div className="gallery">
     <a target="_blank" href="img_forest.jpg" >
-      <img src={image4} alt="Forest" />
+      <img src={image7} alt="Forest" />
     </a>
   </div>
 </div>
@@ -232,7 +240,7 @@ const Home = () => {
 <div className="responsive">
   <div className="gallery">
     <a target="_blank" href="img_lights.jpg">
-      <img src={image3} alt="Northern Lights" />
+      <img src={image6} alt="Northern Lights" />
     </a>
   </div>
 </div>
@@ -240,7 +248,7 @@ const Home = () => {
 <div className="responsive">
   <div className="gallery">
     <a target="_blank" href="img_mountains.jpg">
-      <img src={image3} alt="Mountains" />
+      <img src={image9} alt="Mountains" />
     </a>
   </div>
 </div>

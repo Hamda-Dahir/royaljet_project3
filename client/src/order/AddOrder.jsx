@@ -124,11 +124,12 @@ const AddOrderForm = ({ onClose }) => {
           required
         >
 
-        <option value="">Select paymentType</option>
+
+        <option value="">select payment Type</option>
         <option value="">Zaad</option>
         <option value="">Edahab</option>
         <option value="">Cash</option>
-        </Form.Control>
+       </Form.Control>
       </Form.Group>
 
       <Button

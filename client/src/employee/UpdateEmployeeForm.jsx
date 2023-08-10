@@ -7,6 +7,7 @@ function UpdateEmployeeForm({ employee, onClose, onUpdate }) {
     name: employee.name,
     phone: employee.phone,
     position: employee.position,
+    salary:employee.salary,
   });
 
   const handleInputChange = (event) => {
@@ -67,6 +68,19 @@ function UpdateEmployeeForm({ employee, onClose, onUpdate }) {
           required
         />
       </Form.Group>
+
+      <Form.Group controlId="formPosi">
+        <Form.Label>salary</Form.Label>
+        <Form.Control
+          type="number"
+          name="salary"
+          className="mt-2 form-control rounded-0 w-100"
+          value={updatedEmployeeData.salary}
+          onChange={handleInputChange}
+          required
+        />
+      </Form.Group>
+
 
       <Button
         variant="primary"

@@ -26,6 +26,7 @@ function Employees() {
     name: '',
     phone: 0,
     position: '',
+    salary:'',
   });
 
   useEffect(() => {
@@ -157,6 +158,7 @@ function Employees() {
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Position</th>
+                <th>salary</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -167,6 +169,7 @@ function Employees() {
                   <td>{employee.name}</td>
                   <td>{employee.phone}</td>
                   <td>{employee.position}</td>
+                  <td>${employee.salary}</td>
                   <td>
                     <Button
                       className="me-2"

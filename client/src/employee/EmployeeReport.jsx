@@ -13,6 +13,7 @@ const EmployeeReport = ({ employees }) => {
             <th>Name</th>
             <th>Phone</th>
             <th>Position</th>
+            <th>salary</th>
           </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@ const EmployeeReport = ({ employees }) => {
               <td>{employee.name}</td>
               <td>{employee.phone}</td>
               <td>{employee.position}</td>
+              <td>{employee.salary}</td>
             </tr>
           ))}
         </tbody>

@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import SidebarMenu from './Dashboard/SidebarMenu';
 import Header from './Dashboard/Header';
 import Stats from './stats/Stats';
-import Users from './user/Users';
+// import Users from './user/Users';
 
 const AppRoutes = ({ userName }) => {
   return (
@@ -18,7 +18,7 @@ const AppRoutes = ({ userName }) => {
             {/* Dashboard route */}
             <Route path="/dashboard" element={<SidebarMenu />} />
             <Route path="/stats" element={<Stats />} />
-            <Route path="/users" element={<Users />} />
+            {/* <Route path="/users" element={<Users />} /> */}
             {/* Add more non-auth routes as needed */}
           </Routes>
         </div>
