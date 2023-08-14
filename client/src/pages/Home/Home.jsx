@@ -94,6 +94,7 @@ const Home = () => {
                         <h1 className="display-5 fw-bolder text-white mb-2">Welcome to Royaljet</h1>
                         <p className="lead text-white-50 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
                         <div className="d-grid gap-3 d-sm-flex justify-content-sm-center">
+
                             {/* <Button className="me-2" variant="success" onClick={handleShowModal}>
           Order Design 
         </Button> */}
@@ -170,57 +171,7 @@ const Home = () => {
 
         
     </section>
-    <section className="bg-light py-5 border-bottom">
-        <div className="container px-5 my-5">
-            <div className="text-center mb-5">
-                <h2 className="fw-bolder">Pay as you grow</h2>
-                <p className="lead mb-0">With our no hassle pricing plans</p>
-            </div>
-            <div className="row gx-5 justify-content-center">
-                <div className="col-lg-6 col-xl-4">
-                    <div className="card mb-5 mb-xl-0">
-                        <div className="card-body p-5">
-                            <div className="small text-uppercase fw-bold text-muted"></div>
-                            <div className="mb-3">
-                                <span className="display-4 fw-bold">TEAM WORK</span>
-                                <span className="text-muted"></span>
-                            </div>
-                          
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6 col-xl-4">
-                    <div className="card mb-5 mb-xl-0">
-                        <div className="card-body p-5">
-                            <div className="small text-uppercase fw-bold">
-                                <i className="bi bi-star-fill text-warning"></i>
-                            
-                            </div>
-                            <div className="mb-3">
-                                <span className="display-4 fw-bold"></span>
-                                <span className="text-muted">QUALITY ORIENTED</span>
-                            </div>
-                           
-                            <div className="d-grid"><a className="btn btn-primary" href="#!">Choose plan</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6 col-xl-4">
-                    <div className="card">
-                        <div className="card-body p-5">
-                            <div className="small text-uppercase fw-bold text-muted">HONESTY</div>
-                            <div className="mb-3">
-                                <span className="display-4 fw-bold"></span>
-                                <span className="text-muted"></span>
-                            </div>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <div className="responsive">
   <div className="gallery">
     <a target="_blank" href="img_5terre.jpg">
