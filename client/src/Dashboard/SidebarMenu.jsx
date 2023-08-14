@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/js/dist/dropdown';
 import './Sidemenubar.css';
-import logo from '../assets/somali.ico';
+import logo from '../assets/css/logo.jpg';
 
 function SidebarMenu() {
   return (
@@ -12,6 +12,7 @@ function SidebarMenu() {
         <div className="col-auto d-flex justify-content-between flex-column">
           <div>
             <a className=" d-none d-sm-inline d-flex align-item-center ms-3 mt-8">
+              
               <span className="">
                 <img src={logo} alt="" className="logo" />
               </span>
