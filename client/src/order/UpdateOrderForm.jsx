@@ -101,15 +101,22 @@ const UpdateOrderForm = ({ order, onClose, onUpdate }) => {
       </Form.Group>
       <Form.Group controlId="formPayment">
         <Form.Label>PaymentType</Form.Label>
-        <Form.Control
-          type="text"
+       
+         <Form.Control
+          as="select"
           name="paymentType"
           className="mt-2 form-control rounded-0 w-100"
           value={updatedOrderData.paymentType}
           onChange={handleInputChange}
           required
-        />
+        >
+          {/* <option value="">Select option</option> */}
+          <option value="Zaad" >Zaad</option>
+          <option value="Edahab">Edahab</option>
+          <option value="Cash">Cash</option>
+        </Form.Control>
       </Form.Group>
+      
 
       <Button
         variant="primary"

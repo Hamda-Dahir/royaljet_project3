@@ -92,7 +92,7 @@ const Home = () => {
                 <div className="col-lg-6">
                     <div className="text-left my-5">
                         <h1 className="display-5 fw-bolder text-white mb-2">Welcome to Royaljet</h1>
-                        <p className="lead text-white-50 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+                        <p className="lead text-white-50 mb-4">We are your regional solutions provider. Sagaljet expertise is in understanding our customers’ needs – from concept to execution. Combined with our breadth of products and services, we are equipped to handle your multi-channel strategic execution!</p>
                         <div className="d-grid gap-3 d-sm-flex justify-content-sm-center">
 
                             {/* <Button className="me-2" variant="success" onClick={handleShowModal}>

@@ -91,8 +91,9 @@ function UpdateCustomerForm({ customer, onClose, onUpdate }) {
           required
         >
           {/* <option value="">Select option</option> */}
-          <option value="pending">Pending</option>
+          <option value="pending" >Pending</option>
           <option value="accepted">Accepted</option>
+          <option value="accepted">Cancelled</option>
         </Form.Control>
       </Form.Group>
 
