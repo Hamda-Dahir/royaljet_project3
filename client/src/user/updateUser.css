@@ -1,0 +1,44 @@
+/* In your main CSS file */
+.update-user-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.update-user-form {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.update-user-form h2 {
+  margin-bottom: 20px;
+}
+
+.update-user-form .form-group label {
+  font-weight: bold;
+}
+
+.update-user-form .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.update-user-form .btn-success {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.update-user-form .btn-success:hover {
+  background-color: #218838;
+}

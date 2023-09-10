@@ -1,0 +1,120 @@
+/* App.css */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #00008b;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header p {
+  margin: 5px 0;
+}
+
+.middle-section {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  flex: 0 0 210px;
+  background-color: #000045;
+  color: #fff;
+  padding: 10px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.sidebar a:hover {
+  background-color: #555555;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Adjust the below styles to customize the appearance of the content area */
+.content h1 {
+  margin-bottom: 20px;
+}
+
+.content p {
+  line-height: 1.6;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex: 0 0 100%;
+    height: auto;
+    position: static;
+    padding-bottom: 20px;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}
+
+/* Custom CSS */
+.add-user-container {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Light gray background with transparency */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.modal-header {
+  background-color: #007bff; /* Blue header background color */
+  color: #fff; /* White header text color */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.modal-body {
+  background-color: #fff; /* White body background color */
+}
+
+.modal-footer {
+  background-color: #f9f9f9; /* Light gray footer background color */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
